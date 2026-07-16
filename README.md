@@ -1,26 +1,27 @@
 # Urlaubskasse Woche 1
 
-Statische, mobile Leseansicht der Urlaubskasse für den Sommerurlaub 2026.
+Dieses Repository ist der verbindliche, versionierte Datenspeicher für die Urlaubsabrechnung.
 
-## Ansichten
+## Maßgebliche Dateien
 
-- **Protokoll:** rendert den vollständigen Markdown-Datenstand.
-- **Einkäufe:** zeigt alle erfassten Bons und Gutschriften mit Datum, Urlaubssumme und Zahlungsquelle.
-- **Excel:** stellt die aktuelle Arbeitsmappe zum Download bereit.
-- **Salden:** zeigt personenscharfe Salden und vorgeschlagene Ausgleichszahlungen.
+- `data/buchungen.json` – vollständiger maschinenlesbarer Datenbestand mit Bons, Einzelpositionen, Ausschlüssen, Zahlungsguthaben und Salden
+- `data/status.md` – kompakter Übergabestand für die Fortsetzung in einem neuen Chat
+- `data/protokoll.md` – lesbare chronologische Dokumentation einschließlich Korrekturen
+- `exports/Urlaubskasse_Woche1.xlsx` – aktueller bereinigter Excel-Export
 
-Die Website verwendet keine Datenbank und keine externen JavaScript-Bibliotheken. Alle Daten werden beim Build statisch erzeugt.
+## Arbeitsweise
 
-## Aktualisierung
+Die Datenerfassung erfolgt ausschließlich im Chat. Vor einem neuen Eintrag wird der aktuelle Repo-Stand eingelesen. Danach werden Daten, Protokoll, Status und Excel-Export gemeinsam aktualisiert und als neuer Commit gespeichert.
 
-Der Datensatz wird ausschließlich im Chat gepflegt. Bei einer Aktualisierung wird das statische Datenpaket im Repository ersetzt. Der vorhandene GitHub-Actions-Workflow erzeugt die Website und die Excel-Datei anschließend neu.
-
-## Einmalige Veröffentlichung
-
-Im Repository unter **Settings → Pages → Build and deployment → Source** einmal **GitHub Actions** auswählen. Danach veröffentlicht jeder neue Datenstand automatisch unter:
-
-`https://holypetrus1.github.io/abrechnung/`
+Ein neuer Chat kann ohne Datei-Upload fortsetzen, indem er zuerst `data/status.md` und `data/buchungen.json` aus diesem Repository lädt.
 
 ## Datenschutz
 
-Das Repository ist öffentlich. Deshalb werden keine Originalbelege hochgeladen; die veröffentlichte Excel-Datei enthält außerdem keine Karten-Endziffern.
+- Keine Originalbelege im Repository
+- Keine Kreditkarten-, Konto-, Gutschein- oder sonstigen Zahlungsnummern
+- Zahlungsquellen nur als neutrale Bezeichnung, zum Beispiel `Gemeinschaftskonto Katrin & Simon`
+- Personenbezeichnungen bleiben in der vereinbarten anonymisierten Form
+
+## Verteilungsregel
+
+Normale laufende Urlaubsausgaben werden standardmäßig zu je 25 % auf Simon, Katrin, Onkel und Tante verteilt. Oma und Großvater werden nur bei ausdrücklich genannten Abweichungen belastet.
