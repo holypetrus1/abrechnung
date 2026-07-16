@@ -9,11 +9,17 @@ Statische, mobile Leseansicht der Urlaubskasse für den Sommerurlaub 2026.
 - **Excel:** stellt die aktuelle Arbeitsmappe zum Download bereit.
 - **Salden:** zeigt personenscharfe Salden und vorgeschlagene Ausgleichszahlungen.
 
-Die Website verwendet keine Datenbank und keine externen JavaScript-Bibliotheken. Alle Daten liegen statisch in `data.js`, `protokoll.md` und `Urlaubskasse_Woche1.xlsx`.
+Die Website verwendet keine Datenbank und keine externen JavaScript-Bibliotheken. Alle Daten werden beim Build statisch erzeugt.
 
 ## Aktualisierung
 
-Der Datensatz wird ausschließlich im Chat gepflegt. Bei einer Aktualisierung werden die statischen Dateien im Repository ersetzt und GitHub Pages automatisch neu veröffentlicht.
+Der Datensatz wird ausschließlich im Chat gepflegt. Bei einer Aktualisierung wird das statische Datenpaket im Repository ersetzt. Der vorhandene GitHub-Actions-Workflow erzeugt die Website und die Excel-Datei anschließend neu.
+
+## Einmalige Veröffentlichung
+
+Im Repository unter **Settings → Pages → Build and deployment → Source** einmal **GitHub Actions** auswählen. Danach veröffentlicht jeder neue Datenstand automatisch unter:
+
+`https://holypetrus1.github.io/abrechnung/`
 
 ## Datenschutz
 
