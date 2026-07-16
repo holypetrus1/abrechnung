@@ -19,43 +19,55 @@
   const status=document.querySelector('#status');
   const error=document.querySelector('#error');
   const fail=e=>{document.querySelector('#bar').hidden=true;status.textContent='Die Oberfläche konnte nicht geladen werden.';error.hidden=false;error.textContent=String(e?.message||e)};
+  const decodeBase64=value=>{
+    const alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    const clean=value.replace(/[^A-Za-z0-9+/=]/g,'');
+    const output=[];
+    let buffer=0,bits=0;
+    for(const character of clean){
+      if(character==='=')break;
+      const code=alphabet.indexOf(character);
+      if(code<0)continue;
+      buffer=(buffer<<6)|code;
+      bits+=6;
+      if(bits>=8){bits-=8;output.push((buffer>>bits)&255);buffer&=(1<<bits)-1;}
+    }
+    return Uint8Array.from(output);
+  };
   try{
-    if(!('DecompressionStream' in window)) throw new Error('Dieser Browser unterstützt die benötigte Dekomprimierung nicht.');
-    const sourceUrl='https://raw.githubusercontent.com/holypetrus1/abrechnung/main/build_site.py?v=3';
+    if(!('DecompressionStream' in window))throw new Error('Dieser Browser unterstützt die benötigte Dekomprimierung nicht.');
+    const sourceUrl='https://raw.githubusercontent.com/holypetrus1/abrechnung/main/build_site.py?v=5';
     const source=await fetch(sourceUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`Build-Datei nicht gefunden (${r.status})`);return r.text()});
     const marker='BUNDLE = """';
     const start=source.indexOf(marker);
     const end=start<0?-1:source.indexOf('"""',start+marker.length);
     if(start<0||end<0)throw new Error('Website-Paket konnte nicht gelesen werden.');
-    const clean=source.slice(start+marker.length,end).replace(/\s+/g,'');
-    const binary=atob(clean);
-    const zipped=Uint8Array.from(binary,c=>c.charCodeAt(0));
+    const zipped=decodeBase64(source.slice(start+marker.length,end));
+    if(zipped.length<2||zipped[0]!==31||zipped[1]!==139)throw new Error('Website-Paket ist beschädigt.');
     const stream=new Blob([zipped]).stream().pipeThrough(new DecompressionStream('gzip'));
     const tar=new Uint8Array(await new Response(stream).arrayBuffer());
     const files=new Map();
     const decoder=new TextDecoder();
-    const readText=(start,length)=>decoder.decode(tar.slice(start,start+length)).replace(/\0.*$/s,'');
+    const readText=(offset,length)=>decoder.decode(tar.slice(offset,offset+length)).replace(/\0.*$/s,'');
     for(let offset=0;offset+512<=tar.length;){
       const name=readText(offset,100);
       if(!name)break;
       const prefix=readText(offset+345,155);
       const path=(prefix?`${prefix}/`:``)+name;
-      const sizeText=readText(offset+124,12).trim();
-      const size=parseInt(sizeText||'0',8)||0;
+      const size=parseInt(readText(offset+124,12).trim()||'0',8)||0;
       const type=String.fromCharCode(tar[offset+156]||48);
       const fileStart=offset+512;
       if(type==='0'||type==='\0')files.set(path,tar.slice(fileStart,fileStart+size));
       offset=fileStart+Math.ceil(size/512)*512;
     }
-    const get=(...names)=>{for(const n of names){if(files.has(n))return files.get(n)}for(const [k,v] of files){if(names.some(n=>k.endsWith('/'+n)))return v}return null};
+    const get=(...names)=>{for(const name of names){if(files.has(name))return files.get(name)}for(const [path,value] of files){if(names.some(name=>path.endsWith('/'+name)))return value}return null};
     const pageBytes=get('index-standalone.html','index.html');
     if(!pageBytes)throw new Error('Startseite fehlt im Website-Paket.');
     let page=decoder.decode(pageBytes);
     const protocol=get('protokoll.md');
     const workbook=get('Urlaubskasse_Woche1.xlsx');
-    const urls=[];
-    if(protocol){const u=URL.createObjectURL(new Blob([protocol],{type:'text/markdown;charset=utf-8'}));urls.push(u);page=page.replaceAll('https://raw.githubusercontent.com/holypetrus1/abrechnung/main/protokoll.md',u)}
-    if(workbook){const u=URL.createObjectURL(new Blob([workbook],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));urls.push(u);page=page.replaceAll('https://raw.githubusercontent.com/holypetrus1/abrechnung/main/Urlaubskasse_Woche1.xlsx',u)}
+    if(protocol){const url=URL.createObjectURL(new Blob([protocol],{type:'text/markdown;charset=utf-8'}));page=page.replaceAll('https://raw.githubusercontent.com/holypetrus1/abrechnung/main/protokoll.md',url)}
+    if(workbook){const url=URL.createObjectURL(new Blob([workbook],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));page=page.replaceAll('https://raw.githubusercontent.com/holypetrus1/abrechnung/main/Urlaubskasse_Woche1.xlsx',url)}
     document.open();document.write(page);document.close();
   }catch(e){console.error(e);fail(e)}
 })();
