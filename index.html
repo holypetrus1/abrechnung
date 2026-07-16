@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173f37">
+  <meta name="description" content="Statischer Familienzugang zur Urlaubskasse Woche 1">
+  <title>Urlaubskasse · Woche 1</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Familienabrechnung</p>
+        <h1>Urlaubskasse <span>Woche 1</span></h1>
+      </div>
+      <div class="header-status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="updated-at">Daten werden geladen …</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Bereiche">
+    <div class="tabs-inner" role="tablist">
+      <button class="tab is-active" id="tab-protokoll" role="tab" aria-selected="true" aria-controls="view-protokoll" data-view="protokoll">
+        <span aria-hidden="true">▤</span> Protokoll
+      </button>
+      <button class="tab" id="tab-einkaeufe" role="tab" aria-selected="false" aria-controls="view-einkaeufe" data-view="einkaeufe">
+        <span aria-hidden="true">≡</span> Einkäufe
+      </button>
+      <button class="tab" id="tab-excel" role="tab" aria-selected="false" aria-controls="view-excel" data-view="excel">
+        <span aria-hidden="true">↓</span> Excel
+      </button>
+      <button class="tab" id="tab-ausgleich" role="tab" aria-selected="false" aria-controls="view-ausgleich" data-view="ausgleich">
+        <span aria-hidden="true">↔</span> Ausgleich
+      </button>
+    </div>
+  </nav>
+
+  <main id="inhalt" class="page-shell">
+    <section class="summary" aria-label="Zusammenfassung">
+      <div>
+        <p class="summary-label">Aktuell in der Urlaubskasse</p>
+        <p class="summary-value" id="total-expenses">–</p>
+      </div>
+      <div class="summary-meta">
+        <span id="transaction-count">– Vorgänge</span>
+        <span>Nur Leseansicht</span>
+      </div>
+    </section>
+
+    <section class="view is-active" id="view-protokoll" role="tabpanel" aria-labelledby="tab-protokoll" tabindex="0">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Chronik</p>
+          <h2>Abrechnungsprotokoll</h2>
+        </div>
+        <a class="text-link" href="data/protokoll.md" target="_blank" rel="noopener">Markdown öffnen ↗</a>
+      </div>
+      <article class="markdown-card" id="protocol-content" aria-live="polite">
+        <p class="loading">Protokoll wird geladen …</p>
+      </article>
+    </section>
+
+    <section class="view" id="view-einkaeufe" role="tabpanel" aria-labelledby="tab-einkaeufe" tabindex="0" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Übersicht</p>
+          <h2>Alle Einkäufe</h2>
+        </div>
+        <p class="section-note">Ohne Einzelpositionen und Detailberechnungen</p>
+      </div>
+      <div class="purchase-list" id="purchase-list" aria-live="polite">
+        <p class="loading">Einkäufe werden geladen …</p>
+      </div>
+    </section>
+
+    <section class="view" id="view-excel" role="tabpanel" aria-labelledby="tab-excel" tabindex="0" hidden>
+      <div class="download-card">
+        <div class="file-icon" aria-hidden="true">XLSX</div>
+        <div>
+          <p class="eyebrow">Aktueller Export</p>
+          <h2>Urlaubskasse Woche 1</h2>
+          <p>Die vollständige Excel-Datei mit dem aktuellen Datenstand steht hier unverändert zum Download bereit.</p>
+          <a class="primary-button" href="exports/Urlaubskasse_Woche1.xlsx" download>
+            Excel-Datei herunterladen
+          </a>
+          <p class="file-meta">Dateiname: Urlaubskasse_Woche1.xlsx</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-ausgleich" role="tabpanel" aria-labelledby="tab-ausgleich" tabindex="0" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Aktueller Stand</p>
+          <h2>Salden und Ausgleich</h2>
+        </div>
+        <p class="section-note">Positiv = bekommt Geld · Negativ = zahlt</p>
+      </div>
+
+      <div class="balance-grid" id="balance-grid" aria-live="polite">
+        <p class="loading">Salden werden geladen …</p>
+      </div>
+
+      <div class="transfer-card">
+        <div class="transfer-heading">
+          <span aria-hidden="true">↔</span>
+          <div>
+            <p class="eyebrow">Vorschlag</p>
+            <h3>Überweisungen für den Ausgleich</h3>
+          </div>
+        </div>
+        <div id="transfer-list"></div>
+      </div>
+    </section>
+
+    <section class="error-card" id="error-card" hidden>
+      <h2>Daten konnten nicht geladen werden</h2>
+      <p>Bitte die Seite neu laden. Die Dateien liegen statisch im Repository und werden nicht über eine Datenbank bezogen.</p>
+      <pre id="error-detail"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Statische Leseansicht · Datenpflege ausschließlich im Chat und im Repository</p>
+  </footer>
+</body>
+</html>
