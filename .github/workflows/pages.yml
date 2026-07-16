@@ -1,4 +1,4 @@
-name: GitHub Pages bereitstellen
+name: Website-Dateien erzeugen
 
 on:
   push:
@@ -6,33 +6,42 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: website-build
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Statische Website erzeugen
         run: python build_site.py
-      - name: Excel-Datei erzeugen
-        run: python public/scripts/build_excel.py
-      - name: GitHub Pages konfigurieren
-        uses: actions/configure-pages@v5
-      - name: Website-Artefakt hochladen
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: public
-      - name: Website veröffentlichen
-        id: deployment
-        uses: actions/deploy-pages@v4
+
+      - name: Fertige Dateien in das Repository übernehmen
+        run: |
+          cp public/index.html index.html
+          cp public/styles.css styles.css
+          cp public/app.js app.js
+          cp public/data.js data.js
+          cp public/protokoll.md protokoll.md
+          cp public/Urlaubskasse_Woche1.xlsx Urlaubskasse_Woche1.xlsx
+          touch .nojekyll
+
+      - name: Generierte Website veröffentlichen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css app.js data.js protokoll.md Urlaubskasse_Woche1.xlsx .nojekyll
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen"
+          else
+            git commit -m "Website-Dateien aktualisieren [skip ci]"
+            git push
+          fi
