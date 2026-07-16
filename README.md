@@ -2,6 +2,17 @@
 
 Dieses Repository ist der verbindliche, versionierte Datenspeicher für die Urlaubsabrechnung.
 
+## Weboberfläche
+
+Die statische Familienansicht wird über GitHub Pages veröffentlicht:
+
+- Protokoll als lesbare Markdown-Ansicht
+- Liste aller Einkäufe mit Datum, Urlaubssumme und Zahlungsquelle
+- Download des aktuellen Excel-Exports
+- aktuelle Salden und vorgeschlagene Ausgleichsüberweisungen
+
+Die Oberfläche ist ausschließlich lesend. Konzept und technische Struktur sind unter `docs/web-konzept.md` dokumentiert.
+
 ## Maßgebliche Dateien
 
 - `data/buchungen.json` – vollständiger maschinenlesbarer Datenbestand mit Bons, Einzelpositionen, Ausschlüssen, Zahlungsguthaben und Salden
