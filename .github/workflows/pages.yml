@@ -1,0 +1,54 @@
+name: Urlaubskasse als GitHub Pages veröffentlichen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "app.js"
+      - "data/**"
+      - "exports/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: GitHub Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Statische Website zusammenstellen
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site/data _site/exports
+          cp index.html styles.css app.js _site/
+          cp data/buchungen.json data/protokoll.md _site/data/
+          cp exports/Urlaubskasse_Woche1.xlsx _site/exports/
+          touch _site/.nojekyll
+
+      - name: Website-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Website veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4
