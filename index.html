@@ -21,10 +21,13 @@
   const fail=e=>{document.querySelector('#bar').hidden=true;status.textContent='Die Oberfläche konnte nicht geladen werden.';error.hidden=false;error.textContent=String(e?.message||e)};
   try{
     if(!('DecompressionStream' in window)) throw new Error('Dieser Browser unterstützt die benötigte Dekomprimierung nicht.');
-    const source=await fetch('build_site.py',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`Build-Datei nicht gefunden (${r.status})`);return r.text()});
-    const match=source.match(/BUNDLE\s*=\s*"""([A-Za-z0-9+/=\s]+)"""/);
-    if(!match)throw new Error('Website-Paket konnte nicht gelesen werden.');
-    const clean=match[1].replace(/\s+/g,'');
+    const sourceUrl='https://raw.githubusercontent.com/holypetrus1/abrechnung/main/build_site.py?v=3';
+    const source=await fetch(sourceUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`Build-Datei nicht gefunden (${r.status})`);return r.text()});
+    const marker='BUNDLE = """';
+    const start=source.indexOf(marker);
+    const end=start<0?-1:source.indexOf('"""',start+marker.length);
+    if(start<0||end<0)throw new Error('Website-Paket konnte nicht gelesen werden.');
+    const clean=source.slice(start+marker.length,end).replace(/\s+/g,'');
     const binary=atob(clean);
     const zipped=Uint8Array.from(binary,c=>c.charCodeAt(0));
     const stream=new Blob([zipped]).stream().pipeThrough(new DecompressionStream('gzip'));
@@ -40,9 +43,9 @@
       const sizeText=readText(offset+124,12).trim();
       const size=parseInt(sizeText||'0',8)||0;
       const type=String.fromCharCode(tar[offset+156]||48);
-      const start=offset+512;
-      if(type==='0'||type==='\0')files.set(path,tar.slice(start,start+size));
-      offset=start+Math.ceil(size/512)*512;
+      const fileStart=offset+512;
+      if(type==='0'||type==='\0')files.set(path,tar.slice(fileStart,fileStart+size));
+      offset=fileStart+Math.ceil(size/512)*512;
     }
     const get=(...names)=>{for(const n of names){if(files.has(n))return files.get(n)}for(const [k,v] of files){if(names.some(n=>k.endsWith('/'+n)))return v}return null};
     const pageBytes=get('index-standalone.html','index.html');
