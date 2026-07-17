@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 1 – Arbeitsstatus
 
-Stand: 16.07.2026 nach zwei erfassten Einkäufen.
+Stand: 17.07.2026 nach drei erfassten Einkäufen und einer Gutschrift.
 
 ## Verbindliche Regeln
 
@@ -25,20 +25,25 @@ Stand: 16.07.2026 nach zwei erfassten Einkäufen.
 
 ## Aktueller Abrechnungsstand
 
-- Anrechenbare Urlaubsausgaben gesamt: 44,04 €
-- Belastung je Simon, Katrin, Onkel und Tante: 11,01 €
-- Bisherige Vorleistung: Gemeinschaftskonto Simon und Katrin
+- Anrechenbare Urlaubsausgaben gesamt: 69,04 €
+- Belastung je Simon, Katrin, Onkel und Tante: 17,26 €
+- Zahlungsguthaben:
+  - Simon: 47,02 €
+  - Katrin: 22,02 €
 - Vorgeschlagener Ausgleich:
-  - Onkel überweist Simon 11,01 €
-  - Tante überweist Katrin 11,01 €
+  - Onkel überweist Simon 17,26 €
+  - Tante überweist Simon 12,50 €
+  - Tante überweist Katrin 4,76 €
 
 ## Letzter verarbeiteter Vorgang
 
-- Vorgang U-002
-- BIO COMPANY über Wolt
-- Kauf-/Lieferdatum: 16.07.2026
-- Netto für den Urlaub: 9,21 €
-- Urlaubsposten: Quark, Kinder-Äpfel nach Gutschrift, Linsenchips
+- Vorgang U-003 / BON-20260717-001
+- Barracuda Fisch
+- Kaufdatum: 17.07.2026
+- Urlaubsausgabe: 25,00 €
+- Gezahlt von: Simon
+- Artikel: Matjesfilets
+- Status: vorläufige Sammelposition; Originalbon folgt und wird später positionsgenau ergänzt
 
 ## Fortsetzung in einem neuen Chat
 

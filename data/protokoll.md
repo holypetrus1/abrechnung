@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 1
 
-**Stand:** 16.07.2026, 20:54:50 Uhr  
+**Stand:** 17.07.2026, 11:04:53 Uhr  
 **Verbindliche Datenquelle:** `data/buchungen.json`
 
 ## Standardlogik
@@ -19,19 +19,20 @@
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 11,01 € | 22,02 € | +11,01 € |
-| Katrin | 11,01 € | 22,02 € | +11,01 € |
-| Onkel | 11,01 € | 0,00 € | −11,01 € |
-| Tante | 11,01 € | 0,00 € | −11,01 € |
+| Simon | 17,26 € | 47,02 € | +29,76 € |
+| Katrin | 17,26 € | 22,02 € | +4,76 € |
+| Onkel | 17,26 € | 0,00 € | −17,26 € |
+| Tante | 17,26 € | 0,00 € | −17,26 € |
 | Oma | 0,00 € | 0,00 € | 0,00 € |
 | Großvater | 0,00 € | 0,00 € | 0,00 € |
 
-**Anrechenbare Urlaubsausgaben gesamt:** 44,04 €
+**Anrechenbare Urlaubsausgaben gesamt:** 69,04 €
 
 **Vorgeschlagener Ausgleich:**
 
-- Onkel überweist Simon 11,01 €.
-- Tante überweist Katrin 11,01 €.
+- Onkel überweist Simon 17,26 €.
+- Tante überweist Simon 12,50 €.
+- Tante überweist Katrin 4,76 €.
 
 ---
 
@@ -130,6 +131,25 @@
 
 ---
 
+## BON-20260717-001 – Barracuda Fisch
+
+- Kauf: 17.07.2026
+- Erfasst: 17.07.2026, 11:04:53 Uhr
+- Belegsumme: **25,00 €**
+- Urlaubsausgabe: **25,00 €**
+- Zahlung: Simon
+- Zahlungsguthaben: Simon 25,00 €
+- Status: vorläufig erfasst; Originalbon folgt
+- Derzeit als eine Sammelposition geführt und nach Eingang des Bons positionsgenau zu ergänzen.
+
+### Positionen
+
+| Pos. | Artikel | Netto | Urlaub | Ausgeschlossen | Status |
+|---:|---|---:|---:|---:|---|
+| 1 | Matjesfilets | 25,00 € | 25,00 € | 0,00 € | Urlaub; vorläufige Sammelposition |
+
+---
+
 ## Änderungsprotokoll
 
 1. **16.07.2026, 20:41:17 Uhr – Einrichtung:** Regeln und personenscharfe Konten angelegt.
@@ -141,3 +161,5 @@
 7. **16.07.2026, 20:54:50 Uhr – Verteilung:** Servicegebühr und Bestellrabatt proportional nach Warenwert verteilt.
 8. **16.07.2026, 20:54:50 Uhr – Gutschrift:** Apfel-Gutschrift von −3,61 € vollständig dem Urlaub zugeordnet.
 9. **16.07.2026, 20:54:50 Uhr – Salden:** Gesamtstand auf 44,04 € aktualisiert; vorgeschlagener Ausgleich zweimal 11,01 €.
+10. **17.07.2026, 11:04:53 Uhr – Vorläufiger Bon:** Barracuda Fisch mit Matjesfilets über 25,00 € als von Simon bezahlte Urlaubsausgabe aufgenommen; Originalbon steht noch aus.
+11. **17.07.2026, 11:04:53 Uhr – Salden:** Gesamtstand auf 69,04 € aktualisiert; Belastung je zahlendem Erwachsenen 17,26 €.
