@@ -1,165 +1,98 @@
 # Urlaubskasse Woche 1
 
-**Stand:** 17.07.2026, 11:04:53 Uhr  
+**Stand:** 18.07.2026, 14:16:28 Uhr  
 **Verbindliche Datenquelle:** `data/buchungen.json`
 
 ## Standardlogik
 
-- Simon, Katrin, Onkel und Tante tragen normale laufende Urlaubsausgaben zu je 25 %.
+- Simon, Katrin, Onkel und Tante tragen laufende Urlaubsausgaben zu je 25 %.
 - Oma und Großvater tragen standardmäßig 0 %, da sie die Unterkunft bezahlt haben.
-- Kinder werden nicht als eigene Abrechnungskonten belastet.
-- Die zahlende Person beziehungsweise Zahlungsquelle wird getrennt von der Kostenverteilung erfasst.
-- Zahlungen vom Gemeinschaftskonto Simon/Katrin werden hälftig beiden gutgeschrieben; Rundungscent werden dokumentiert.
-- Pfand und Leergut werden wie normale Ausgaben beziehungsweise Gutschriften behandelt.
-- Kaufdatum und Erfassungszeitpunkt werden getrennt gespeichert.
-- Korrekturen bleiben im Änderungsprotokoll sichtbar.
-- Kreditkarten-, Konto-, Gutschein- und sonstige Zahlungsnummern werden nicht im Repo gespeichert.
+- Zahlende Person oder Zahlungsquelle wird getrennt von der Kostenverteilung erfasst.
+- Das Gemeinschaftskonto Katrin & Simon wird hälftig beiden gutgeschrieben.
+- Bonweite Rabatte werden anteilig nach Warenwert auf Urlaubs- und Privatpositionen verteilt.
+- Einzelpositionen und vollständige Rechendaten stehen in `data/buchungen.json` und im Excel-Export.
 
 ## Aktueller Gesamtstand
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 17,26 € | 47,02 € | +29,76 € |
-| Katrin | 17,26 € | 22,02 € | +4,76 € |
-| Onkel | 17,26 € | 0,00 € | −17,26 € |
-| Tante | 17,26 € | 0,00 € | −17,26 € |
+| Simon | 34,62 € | 81,74 € | +47,12 € |
+| Katrin | 34,62 € | 56,74 € | +22,12 € |
+| Onkel | 34,62 € | 0,00 € | −34,62 € |
+| Tante | 34,62 € | 0,00 € | −34,62 € |
 | Oma | 0,00 € | 0,00 € | 0,00 € |
 | Großvater | 0,00 € | 0,00 € | 0,00 € |
 
-**Anrechenbare Urlaubsausgaben gesamt:** 69,04 €
+**Anrechenbare Urlaubsausgaben gesamt:** 138,48 €
 
 **Vorgeschlagener Ausgleich:**
 
-- Onkel überweist Simon 17,26 €.
+- Onkel überweist Simon 34,62 €.
 - Tante überweist Simon 12,50 €.
-- Tante überweist Katrin 4,76 €.
+- Tante überweist Katrin 22,12 €.
 
 ---
 
-## BON-20260716-001 – Kaufland
+## Bisherige Vorgänge
 
-- Kauf: 16.07.2026, 08:03 Uhr
-- Erfasst: 16.07.2026, 20:41:17 Uhr
-- Händler: Kaufland, Breite Straße 19–21 A, Berlin
-- Belegsumme: **63,28 €**
-- Nicht für den Urlaub: **28,45 €**
-- Urlaubsausgabe: **34,83 €**
+| Vorgang | Datum | Händler | Belegsumme | Urlaub | Ausgeschlossen | Zahlung |
+|---|---|---|---:|---:|---:|---|
+| BON-20260716-001 | 16.07.2026 | Kaufland | 63,28 € | 34,83 € | 28,45 € | Gemeinschaftskonto Katrin & Simon |
+| BON-20260716-002 | 16.07.2026 | BIO COMPANY via Wolt | 38,37 € | 12,82 € | 25,55 € | Gemeinschaftskonto Katrin & Simon |
+| GUT-20260716-001 | 16.07.2026 | Wolt / BIO COMPANY | −3,61 € | −3,61 € | 0,00 € | Gemeinschaftskonto Katrin & Simon |
+| BON-20260717-001 | 17.07.2026 | Barracuda Fisch | 25,00 € | 25,00 € | 0,00 € | Simon |
+| BON-20260717-002 | 17.07.2026 | BIO COMPANY Rathauscenter | 73,41 € | 69,44 € | 3,97 € | Gemeinschaftskonto Katrin & Simon |
+
+**Offen:** Der Barracuda-Fisch-Vorgang bleibt bis zum Originalbon als Sammelposition „Matjesfilets“ geführt.
+
+---
+
+## BON-20260717-002 – BIO COMPANY Rathauscenter
+
+- Kauf: 17.07.2026, 09:48:59 Uhr
+- Erfasst: 18.07.2026, 14:16:28 Uhr
+- Ort: Breite Straße 20, 13187 Berlin
+- Warenwert vor Bonus: **80,85 €**
+- Bon-Rabatt: **−7,44 €**
+- Belegsumme: **73,41 €**
+- Nicht für den Urlaub nach Rabatt: **3,97 €**
+- Urlaubsausgabe: **69,44 €**
 - Zahlung: Gemeinschaftskonto Katrin & Simon
-- Zahlungsguthaben: Simon 17,42 €, Katrin 17,41 €
-- Status: korrigiert; beide Feta ausgeschlossen, Harzbube Handkäse enthalten
+- Zahlungsguthaben: Simon 34,72 €, Katrin 34,72 €
 
 ### Positionen
 
-| Pos. | Artikel | Netto | Urlaub | Ausgeschlossen | Status |
+| Pos. | Artikel | Brutto | Rabatt | Netto | Zuordnung |
 |---:|---|---:|---:|---:|---|
-| 1 | KBio Naturjoghurt, 3 Stück | 5,97 € | 1,99 € | 3,98 € | teilweise; 2 Stück ausgeschlossen |
-| 2 | KBio ESL-Milch 3,8 %, 2 Stück | 2,29 € | 2,29 € | 0,00 € | Urlaub |
-| 3 | KBio Bio-Frischkäse, 2 Stück | 2,06 € | 0,00 € | 2,06 € | ausgeschlossen |
-| 4 | KBio Leinsamen ganz | 1,55 € | 0,00 € | 1,55 € | ausgeschlossen |
-| 5 | Lindt Lindor Tafel | 2,79 € | 2,79 € | 0,00 € | Urlaub |
-| 6 | KBio Bananen | 1,46 € | 0,00 € | 1,46 € | ausgeschlossen |
-| 7 | Katjes | 0,89 € | 0,89 € | 0,00 € | Urlaub |
-| 8 | KBio Bandnudeln 500 g, 2 Packungen | 2,32 € | 2,32 € | 0,00 € | Urlaub |
-| 9 | KBio Äpfel rot 1 kg | 3,49 € | 3,49 € | 0,00 € | Urlaub |
-| 10 | KBio Feta, 2 Packungen | 4,30 € | 0,00 € | 4,30 € | ausgeschlossen |
-| 11 | LM Penne Rigate | 1,19 € | 0,00 € | 1,19 € | ausgeschlossen |
-| 12 | LM Mezzi Rigatoni | 1,19 € | 0,00 € | 1,19 € | ausgeschlossen |
-| 13 | KBio Fusilli Vollkorn, 2 Packungen | 1,36 € | 1,36 € | 0,00 € | Urlaub |
-| 14 | KBio Tomaten 500 g | 2,79 € | 2,79 € | 0,00 € | Urlaub |
-| 15 | K-free Schlagsahne | 0,99 € | 0,00 € | 0,99 € | ausgeschlossen |
-| 16 | Leibniz Black'n White | 1,99 € | 0,00 € | 1,99 € | ausgeschlossen |
-| 17 | KLC Chips leicht gesalzen | 1,39 € | 1,39 € | 0,00 € | Urlaub |
-| 18 | KLC American Cookies | 1,29 € | 0,00 € | 1,29 € | ausgeschlossen |
-| 19 | K-Bio Honig cremig | 1,99 € | 0,00 € | 1,99 € | ausgeschlossen |
-| 20 | Harzbube Handkäse | 1,99 € | 1,99 € | 0,00 € | Urlaub; nach Korrektur enthalten |
-| 21 | St. Mang Limburger | 1,89 € | 1,89 € | 0,00 € | Urlaub |
-| 22 | KBio Birnen 500 g | 2,23 € | 2,23 € | 0,00 € | Urlaub |
-| 23 | KBio Zitronen 500 g, 2 Packungen | 3,98 € | 0,00 € | 3,98 € | ausgeschlossen |
-| 24 | Avocado RTE, 2 Stück | 1,79 € | 0,00 € | 1,79 € | ausgeschlossen |
-| 25 | Romatomaten 500 g | 2,79 € | 2,79 € | 0,00 € | Urlaub |
-| 26 | Apostels Zaziki | 0,69 € | 0,00 € | 0,69 € | ausgeschlossen |
-| 27 | KBio Kartoffeln 1,5 kg, 2 Packungen | 4,98 € | 4,98 € | 0,00 € | Urlaub |
-| 28 | Leergut Mopro | −0,15 € | −0,15 € | 0,00 € | Urlaubsgutschrift |
-| 29 | KBio Möhren 1 kg | 1,79 € | 1,79 € | 0,00 € | Urlaub |
+| 1 | Kembrot | 16,79 € | −1,54 € | 15,25 € | Urlaub |
+| 2 | Laugenbrezel | 0,99 € | −0,09 € | 0,90 € | privat |
+| 3 | Saatenbrötchen | 1,49 € | −0,14 € | 1,35 € | privat |
+| 4 | Dinkel-Früchtebrötchen | 1,89 € | −0,17 € | 1,72 € | privat |
+| 5 | Vollkorn Kruste | 5,99 € | −0,55 € | 5,44 € | Urlaub |
+| 6 | Gouda jung | 3,25 € | −0,30 € | 2,95 € | Urlaub |
+| 7 | Saatenbrot | 5,49 € | −0,51 € | 4,98 € | Urlaub |
+| 8 | Hugo | 4,87 € | −0,45 € | 4,42 € | Urlaub |
+| 9 | Allgäuer Tilsiter | 3,01 € | −0,28 € | 2,73 € | Urlaub |
+| 10 | Schweizer Alpiko | 5,92 € | −0,54 € | 5,38 € | Urlaub |
+| 11 | Koriander Käse | 5,26 € | −0,48 € | 4,78 € | Urlaub |
+| 12 | Brie Petit Norma | 3,54 € | −0,33 € | 3,21 € | Urlaub |
+| 13 | Brie Petit Norma | 3,76 € | −0,35 € | 3,41 € | Urlaub |
+| 14 | Emmentaler | 4,96 € | −0,46 € | 4,50 € | Urlaub |
+| 15 | Griekenschmied | 4,54 € | −0,42 € | 4,12 € | Urlaub |
+| 16 | Rote Zwiebeln, 0,546 kg | 1,63 € | −0,15 € | 1,48 € | Urlaub |
+| 17 | Salatgurke | 1,99 € | −0,18 € | 1,81 € | Urlaub |
+| 18 | Rucola-Salat | 1,99 € | −0,18 € | 1,81 € | Urlaub |
+| 19 | Radieschen | 1,99 € | −0,18 € | 1,81 € | Urlaub |
+| 20 | Ramiro Tüte | 1,50 € | −0,14 € | 1,36 € | Urlaub |
 
----
-
-## BON-20260716-002 – BIO COMPANY via Wolt
-
-- Kauf/Lieferung: 16.07.2026, 14:16 Uhr
-- Erfasst: 16.07.2026, 20:54:50 Uhr
-- Rechnungssumme: **38,37 €**
-- Nicht für den Urlaub: **25,55 €**
-- Urlaubsausgabe vor Gutschrift: **12,82 €**
-- Zahlung: Gemeinschaftskonto Katrin & Simon
-- Zahlungsguthaben: Simon 6,41 €, Katrin 6,41 €
-- Für den Urlaub zählen nur Quark, Kinder-Äpfel und Linsenchips.
-- Servicegebühr und Bestellrabatt wurden anteilig nach Warenwert verteilt.
-
-### Positionen
-
-| Pos. | Artikel | Netto | Urlaub | Ausgeschlossen | Status |
-|---:|---|---:|---:|---:|---|
-| 1 | Schrozberg Kefir, 2 Stück | 3,58 € | 0,00 € | 3,58 € | ausgeschlossen |
-| 2 | Pfand Kefir, 2 Stück | 0,30 € | 0,00 € | 0,30 € | ausgeschlossen |
-| 3 | Paul Söbbeke Bio Magerquark, 2 Stück | 3,98 € | 3,98 € | 0,00 € | Urlaub |
-| 4 | Salatgurke | 1,99 € | 0,00 € | 1,99 € | ausgeschlossen |
-| 5 | Söbbeke Speisequark 20 %, 2 Stück | 3,58 € | 3,58 € | 0,00 € | Urlaub |
-| 6 | La Selva Polpa, 5 Stück | 16,45 € | 0,00 € | 16,45 € | ausgeschlossen |
-| 7 | Kinder-Apfel Elstar | 3,99 € | 3,99 € | 0,00 € | Urlaub; Gutschrift separat |
-| 8 | BIO COMPANY Linsenchips Falafel | 1,89 € | 1,89 € | 0,00 € | Urlaub |
-| 9 | BIO COMPANY Grissini Sesam | 1,99 € | 0,00 € | 1,99 € | ausgeschlossen |
-| 10 | Dinkel-Knusperbrezeln | 2,49 € | 0,00 € | 2,49 € | ausgeschlossen |
-| 11–14 | Lieferung und vollständige Lieferrabatte | 0,00 € netto | 0,00 € | 0,00 € | neutralisiert |
-| 15 | Servicegebühr 7 % | 3,56 € | 1,19 € | 2,37 € | anteilig |
-| 16 | Servicegebühr 19 % | 0,03 € | 0,01 € | 0,02 € | anteilig |
-| 17 | Wolt+ Servicegebühr-Rabatt 7 % | −1,43 € | −0,48 € | −0,95 € | anteilig |
-| 18 | Wolt+ Servicegebühr-Rabatt 19 % | −0,01 € | 0,00 € | −0,01 € | ausgeschlossen |
-| 19 | Bestellrabatt | −4,02 € | −1,34 € | −2,68 € | anteilig |
-
----
-
-## GUT-20260716-001 – Gutschrift Kinder-Äpfel
-
-- Ausgestellt: 16.07.2026, 14:58 Uhr
-- Betrag: **−3,61 €**
-- Vollständig der zuvor als Urlaub erfassten Kinder-Apfel-Position zugeordnet
-- Gutschrift auf das Gemeinschaftskonto
-- Minderung des Zahlungsguthabens: Simon −1,81 €, Katrin −1,80 €
-
-**Netto-Urlaubsausgabe aus Wolt-Rechnung und Gutschrift:** 9,21 €
-
----
-
-## BON-20260717-001 – Barracuda Fisch
-
-- Kauf: 17.07.2026
-- Erfasst: 17.07.2026, 11:04:53 Uhr
-- Belegsumme: **25,00 €**
-- Urlaubsausgabe: **25,00 €**
-- Zahlung: Simon
-- Zahlungsguthaben: Simon 25,00 €
-- Status: vorläufig erfasst; Originalbon folgt
-- Derzeit als eine Sammelposition geführt und nach Eingang des Bons positionsgenau zu ergänzen.
-
-### Positionen
-
-| Pos. | Artikel | Netto | Urlaub | Ausgeschlossen | Status |
-|---:|---|---:|---:|---:|---|
-| 1 | Matjesfilets | 25,00 € | 25,00 € | 0,00 € | Urlaub; vorläufige Sammelposition |
+Der Rabatt von 7,44 € wurde proportional nach dem Bruttowarenwert verteilt. Auf die drei Privatpositionen entfallen zusammen 0,40 € Rabatt.
 
 ---
 
 ## Änderungsprotokoll
 
-1. **16.07.2026, 20:41:17 Uhr – Einrichtung:** Regeln und personenscharfe Konten angelegt.
-2. **16.07.2026, 20:41:17 Uhr – Bon erfasst:** Kaufland-Bon mit 29 Positionen aufgenommen.
-3. **16.07.2026, 20:41:17 Uhr – Ausschlüsse:** Genannte Nicht-Urlaubspositionen und artikelbezogene Rabatte zugeordnet.
-4. **16.07.2026, 20:41:17 Uhr – Erstinterpretation:** „Käse“ zunächst als Harzbube Handkäse interpretiert.
-5. **16.07.2026, 20:45:14 Uhr – Korrektur:** Beide Feta ausgeschlossen; Harzbube Handkäse als Urlaubsausgabe aufgenommen. Urlaubssumme Bon 1 von 32,84 € auf 34,83 € korrigiert.
-6. **16.07.2026, 20:54:50 Uhr – Wolt-Rechnung:** Rechnung mit 19 Positionen aufgenommen; nur Quark, Kinder-Äpfel und Linsenchips als Urlaub markiert.
-7. **16.07.2026, 20:54:50 Uhr – Verteilung:** Servicegebühr und Bestellrabatt proportional nach Warenwert verteilt.
-8. **16.07.2026, 20:54:50 Uhr – Gutschrift:** Apfel-Gutschrift von −3,61 € vollständig dem Urlaub zugeordnet.
-9. **16.07.2026, 20:54:50 Uhr – Salden:** Gesamtstand auf 44,04 € aktualisiert; vorgeschlagener Ausgleich zweimal 11,01 €.
-10. **17.07.2026, 11:04:53 Uhr – Vorläufiger Bon:** Barracuda Fisch mit Matjesfilets über 25,00 € als von Simon bezahlte Urlaubsausgabe aufgenommen; Originalbon steht noch aus.
-11. **17.07.2026, 11:04:53 Uhr – Salden:** Gesamtstand auf 69,04 € aktualisiert; Belastung je zahlendem Erwachsenen 17,26 €.
+1. **16.07.2026 – Einrichtung und Kaufland:** Regeln angelegt, Kaufland-Bon aufgenommen und nach Nutzerkorrektur beide Feta ausgeschlossen sowie Harzbube Handkäse einbezogen.
+2. **16.07.2026 – Wolt:** BIO-COMPANY-Rechnung aufgenommen; nur Quark, Kinder-Äpfel und Linsenchips als Urlaub markiert. Servicegebühr und Rabatt anteilig verteilt; Apfel-Gutschrift von −3,61 € zugeordnet.
+3. **17.07.2026 – Barracuda Fisch:** Matjesfilets über 25,00 € vorläufig als von Simon bezahlte Urlaubsausgabe aufgenommen; Originalbon steht aus.
+4. **18.07.2026 – BIO COMPANY Rathauscenter:** Bon über 73,41 € mit 20 Positionen aufgenommen. Laugenbrezel, Saatenbrötchen und Dinkel-Früchtebrötchen ausgeschlossen; Bon-Rabatt proportional verteilt.
+5. **18.07.2026 – Salden:** Gesamtstand auf 138,48 € und Belastung je zahlendem Erwachsenen auf 34,62 € aktualisiert.

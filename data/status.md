@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 1 – Arbeitsstatus
 
-Stand: 17.07.2026 nach drei erfassten Einkäufen und einer Gutschrift.
+Stand: 18.07.2026 nach vier erfassten Einkäufen und einer Gutschrift.
 
 ## Verbindliche Regeln
 
@@ -10,40 +10,45 @@ Stand: 17.07.2026 nach drei erfassten Einkäufen und einer Gutschrift.
 - Oma und Großvater tragen laufende Ausgaben standardmäßig nicht, da sie die Unterkunft bezahlt haben.
 - Abweichungen gelten nur, wenn sie beim jeweiligen Vorgang ausdrücklich genannt werden.
 - Zahlende Person beziehungsweise Zahlungsquelle wird personenscharf erfasst.
-- Zahlungen vom Gemeinschaftskonto von Simon und Katrin werden als gemeinsame Vorleistung geführt und für den Ausgleich hälftig Simon und Katrin zugerechnet.
+- Zahlungen vom Gemeinschaftskonto von Simon und Katrin werden hälftig beiden als Vorleistung zugerechnet.
 - Pfand wird wie eine normale Ausgabe behandelt.
+- Bonweite Rabatte werden anteilig nach Warenwert auf Urlaubs- und Privatpositionen verteilt.
 - Kaufdatum und Erfassungszeitpunkt werden getrennt protokolliert.
 - Jeder Bon wird positionsgenau gespeichert. Korrekturen werden dokumentiert und nicht still überschrieben.
-- Aus dem Repo werden keine Kreditkarten-, Konto- oder Gutscheinnummern gespeichert. Originalbelege werden nicht eingecheckt.
-
-## Haushalte
-
-1. Simon, Katrin, Lotte (Kind)
-2. Oma
-3. Großvater
-4. Onkel, Tante, Cousine älter (Kind), Cousine jünger (Kind)
+- Keine Kreditkarten-, Konto- oder Gutscheinnummern und keine Originalbelege im Repo.
 
 ## Aktueller Abrechnungsstand
 
-- Anrechenbare Urlaubsausgaben gesamt: 69,04 €
-- Belastung je Simon, Katrin, Onkel und Tante: 17,26 €
+- Anrechenbare Urlaubsausgaben gesamt: 138,48 €
+- Belastung je Simon, Katrin, Onkel und Tante: 34,62 €
 - Zahlungsguthaben:
-  - Simon: 47,02 €
-  - Katrin: 22,02 €
+  - Simon: 81,74 €
+  - Katrin: 56,74 €
+- Salden:
+  - Simon: +47,12 €
+  - Katrin: +22,12 €
+  - Onkel: −34,62 €
+  - Tante: −34,62 €
 - Vorgeschlagener Ausgleich:
-  - Onkel überweist Simon 17,26 €
+  - Onkel überweist Simon 34,62 €
   - Tante überweist Simon 12,50 €
-  - Tante überweist Katrin 4,76 €
+  - Tante überweist Katrin 22,12 €
 
 ## Letzter verarbeiteter Vorgang
 
-- Vorgang U-003 / BON-20260717-001
-- Barracuda Fisch
-- Kaufdatum: 17.07.2026
-- Urlaubsausgabe: 25,00 €
-- Gezahlt von: Simon
-- Artikel: Matjesfilets
-- Status: vorläufige Sammelposition; Originalbon folgt und wird später positionsgenau ergänzt
+- Vorgang U-004 / BON-20260717-002
+- BIO COMPANY Rathauscenter, Breite Straße 20, 13187 Berlin
+- Kauf: 17.07.2026, 09:48:59 Uhr
+- Belegsumme: 73,41 € nach 7,44 € Bonus
+- Für den Urlaub: 69,44 €
+- Ausgeschlossen nach anteiligem Rabatt: 3,97 €
+- Privat: Laugenbrezel, Saatenbrötchen, Dinkel-Früchtebrötchen
+- Gezahlt vom Gemeinschaftskonto Katrin & Simon; je 34,72 € Zahlungsguthaben
+
+## Offener Vorgang
+
+- BON-20260717-001 – Barracuda Fisch, Matjesfilets 25,00 €
+- Vorläufig als Sammelposition erfasst; Originalbon steht noch aus.
 
 ## Fortsetzung in einem neuen Chat
 
