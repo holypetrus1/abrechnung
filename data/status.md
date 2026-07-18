@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 1 – Arbeitsstatus
 
-Stand: 18.07.2026 nach vier erfassten Einkäufen und einer Gutschrift.
+Stand: 18.07.2026 nach sechs erfassten Einkäufen, einer Ausgabe ohne Bon und einer Gutschrift.
 
 ## Verbindliche Regeln
 
@@ -19,31 +19,35 @@ Stand: 18.07.2026 nach vier erfassten Einkäufen und einer Gutschrift.
 
 ## Aktueller Abrechnungsstand
 
-- Anrechenbare Urlaubsausgaben gesamt: 138,48 €
-- Belastung je Simon, Katrin, Onkel und Tante: 34,62 €
+- Anrechenbare Urlaubsausgaben gesamt: 219,91 €
+- Belastung:
+  - Simon: 54,98 €
+  - Katrin: 54,98 €
+  - Onkel: 54,98 €
+  - Tante: 54,97 € (Rundungscent)
 - Zahlungsguthaben:
-  - Simon: 81,74 €
-  - Katrin: 56,74 €
+  - Simon: 127,46 €
+  - Katrin: 92,45 €
 - Salden:
-  - Simon: +47,12 €
-  - Katrin: +22,12 €
-  - Onkel: −34,62 €
-  - Tante: −34,62 €
+  - Simon: +72,48 €
+  - Katrin: +37,47 €
+  - Onkel: −54,98 €
+  - Tante: −54,97 €
 - Vorgeschlagener Ausgleich:
-  - Onkel überweist Simon 34,62 €
-  - Tante überweist Simon 12,50 €
-  - Tante überweist Katrin 22,12 €
+  - Onkel überweist Simon 54,98 €
+  - Tante überweist Simon 17,50 €
+  - Tante überweist Katrin 37,47 €
 
-## Letzter verarbeiteter Vorgang
+## Zuletzt verarbeitete Vorgänge
 
-- Vorgang U-004 / BON-20260717-002
-- BIO COMPANY Rathauscenter, Breite Straße 20, 13187 Berlin
-- Kauf: 17.07.2026, 09:48:59 Uhr
-- Belegsumme: 73,41 € nach 7,44 € Bonus
-- Für den Urlaub: 69,44 €
-- Ausgeschlossen nach anteiligem Rabatt: 3,97 €
-- Privat: Laugenbrezel, Saatenbrötchen, Dinkel-Früchtebrötchen
-- Gezahlt vom Gemeinschaftskonto Katrin & Simon; je 34,72 € Zahlungsguthaben
+- BON-20260718-001 – Netto Marken-Discount, Gramzow
+  - Kauf: 18.07.2026, 16:57 Uhr
+  - Belegsumme und Urlaubsausgabe: 71,43 €
+  - Keine Abzüge
+  - Gezahlt vom Gemeinschaftskonto Katrin & Simon; Simon 35,72 €, Katrin 35,71 € Zahlungsguthaben
+- AUS-20260718-001 – Hofladen Marmelade & more
+  - Kauf: 18.07.2026; ohne Bon, 10,00 €
+  - Gezahlt von Simon
 
 ## Offener Vorgang
 
