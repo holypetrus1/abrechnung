@@ -1,0 +1,31 @@
+name: Apply 2026-07-18 expenses
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/apply-20260718-expenses.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Apply receipt data and rebuild exports
+        run: python scripts/apply_20260718_update.py
+
+      - name: Commit generated files and remove temporary updater
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm scripts/apply_20260718_update.py
+          git rm scripts/update_20260718_payload.json
+          git rm .github/workflows/apply-20260718-expenses.yml
+          git add data/buchungen.json data/status.md data/protokoll.md exports/Urlaubskasse_Woche1.xlsx
+          git commit -m "Netto-Bon und Hofladen-Ausgabe erfassen"
+          git push
