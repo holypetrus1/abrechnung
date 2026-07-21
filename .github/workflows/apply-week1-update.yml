@@ -53,4 +53,4 @@ jobs:
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push
 
-# Auslösung über einen gemergten Pull Request.
+# Updatepaket repariert; erneute Auslösung.
