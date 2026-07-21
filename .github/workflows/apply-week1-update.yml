@@ -53,4 +53,4 @@ jobs:
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push
 
-# Zweiter Push: Workflow war bereits auf dem Hauptzweig vorhanden und wird dadurch sicher ausgelöst.
+# Auslösung über einen gemergten Pull Request.
