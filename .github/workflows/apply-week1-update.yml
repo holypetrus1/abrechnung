@@ -1,10 +1,8 @@
 name: Vier neue Ausgaben in Woche 1 übernehmen
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/apply-week1-update.yml"
+  pull_request:
+    types: [closed]
   workflow_dispatch:
 
 permissions:
@@ -12,10 +10,13 @@ permissions:
 
 jobs:
   apply-update:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: Repository auschecken
+      - name: Hauptzweig auschecken
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Aktualisierte Dateien aus Paket herstellen
         shell: bash
@@ -51,6 +52,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
-          git push
-
-# Finaler Lauf mit sicherer Erfassung gelöschter Hilfsdateien.
+          git push origin main
