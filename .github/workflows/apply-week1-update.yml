@@ -53,4 +53,4 @@ jobs:
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push
 
-# Updatepaket repariert; erneute Auslösung.
+# Repariertes Paket über einen zweiten Merge auslösen.
