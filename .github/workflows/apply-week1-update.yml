@@ -53,3 +53,5 @@ jobs:
           git add -A
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push origin main
+
+# Dieser Merge startet den geprüften Import.
