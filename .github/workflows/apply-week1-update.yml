@@ -49,8 +49,8 @@ jobs:
           rm .github/workflows/apply-week1-update.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/buchungen.json data/protokoll.md data/status.md exports/Urlaubskasse_Woche1.xlsx tmp_update .github/workflows/apply-week1-update.yml
+          git add -A
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push
 
-# Repariertes Paket über einen zweiten Merge auslösen.
+# Finaler Lauf mit sicherer Erfassung gelöschter Hilfsdateien.
