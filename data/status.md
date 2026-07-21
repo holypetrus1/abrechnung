@@ -1,58 +1,38 @@
 # Urlaubskasse Woche 1 – Arbeitsstatus
 
-Stand: 21.07.2026 nach zehn Einkäufen beziehungsweise Ausgaben und einer Gutschrift.
-
-## Wochenstatus
-
-- Woche 1 ist weiterhin geöffnet.
-- Woche 2 beginnt erst, wenn der Nutzer dies ausdrücklich mitteilt.
+Stand: 21.07.2026 nach 14 erfassten Vorgängen.
 
 ## Verbindliche Regeln
 
-- Abrechnungskonten: Simon, Katrin, Onkel, Tante, Oma, Großvater.
-- Normale Gemeinschaftsausgaben: Simon, Katrin, Onkel und Tante je 25 %.
-- Ein Vorgang kann mehrere Kostenblöcke mit eigenen Beteiligten enthalten.
-- Zahlungen vom Gemeinschaftskonto Katrin & Simon werden hälftig als Vorleistung gutgeschrieben.
-- Pfand wird wie eine normale Ausgabe oder Gutschrift behandelt.
-- Kinder, Oma und Großvater werden nur bei ausdrücklich genannten Abweichungen belastet.
-- Keine Originalbelege oder Zahlungsnummern im Repository.
+- Woche 1 bleibt geöffnet, bis der Nutzer ausdrücklich den Beginn von Woche 2 nennt.
+- Normale Gemeinschaftsausgaben tragen Simon, Katrin, Onkel und Tante zu je 25 %.
+- Ein Vorgang kann mehrere Kostenblöcke mit eigenen Verteilungsschlüsseln enthalten.
+- Zahlende Person und Kostentragung werden getrennt erfasst.
+- Pfand wird wie eine normale Ausgabe behandelt.
+- Keine Zahlungsnummern oder Originalbelege im Repo.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben gesamt: 561,32 €
-- Gemeinschaftsausgaben: 522,73 €
-- Abweichende Kostenblöcke: 38,59 €
-  - Nur Katrin: Säfte und Pfand Gut Kerkow, 33,60 €
-  - Onkel + Tante: Always-Binden Lidl, 4,99 €
-- Beleg-/Ausgabensummen einschließlich später ausgeschlossener Positionen: 619,29 €
-- Aus der Reiseabrechnung ausgeschlossen: 57,97 €
-
-## Salden
-
-- Simon: Belastung 130,70 € · Zahlungsguthaben 444,76 € · Saldo +314,06 €
-- Katrin: Belastung 164,29 € · Zahlungsguthaben 116,56 € · Saldo −47,73 €
-- Onkel: Belastung 133,18 € · Zahlungsguthaben 0,00 € · Saldo −133,18 €
-- Tante: Belastung 133,15 € · Zahlungsguthaben 0,00 € · Saldo −133,15 €
-- Oma und Großvater: jeweils 0,00 €
+- Verrechnete Ausgaben: 703,02 €
+- Beleg-/Ausgabensumme: 760,99 €
+- Ausgeschlossen: 57,97 €
+- Simon: +278,63 €
+- Katrin: −83,16 €
+- Onkel: −26,90 €
+- Tante: −168,57 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 47,73 €.
-- Onkel überweist Simon 133,18 €.
-- Tante überweist Simon 133,15 €.
+- Katrin überweist Simon 83,16 €.
+- Onkel überweist Simon 26,90 €.
+- Tante überweist Simon 168,57 €.
 
-## Zuletzt verarbeitete Vorgänge
+## Zuletzt verarbeitet
 
-- BON-20260720-001 – Gut Kerkow Fleischmanufaktur, 116,22 €, bezahlt von Simon
-- BON-20260720-002 – Lidl Angermünde, 128,80 €, bezahlt von Simon
-- BON-20260720-003 – REWE Angermünde, 48,16 €, bezahlt von Simon
-- AUS-20260720-001 – Gut Kerkow Bauernmarkt, 48,23 €, Gemeinschaftskonto Katrin & Simon
-
-## Offener Vorgang
-
-- BON-20260717-001 – Barracuda Fisch, Matjesfilets 25,00 €
-- Bis zum Originalbon als Sammelposition geführt.
+- BIO COMPANY Turmstraße, 16.07.2026: 24,74 €, bezahlt von Onkel, vollständig Gemeinschaft.
+- E-Center Berlin-Moabit, 16.07.2026: 81,96 €, bezahlt von Onkel, vollständig Gemeinschaft.
+- REWE ohne Bon, 21.07.2026: 35,00 €, bezahlt von Onkel, vollständig Gemeinschaft.
 
 ## Fortsetzung
 
-Vor weiteren Einträgen `data/status.md`, `data/buchungen.json` und `data/protokoll.md` laden. Danach Daten, Protokoll, Status und Excel-Export gemeinsam aktualisieren.
+Neue Belege weiterhin Woche 1 zuordnen, bis der Nutzer ausdrücklich Woche 2 startet. Danach `data/buchungen.json`, `data/protokoll.md`, `data/status.md`, Excel und Website gemeinsam aktualisieren.
