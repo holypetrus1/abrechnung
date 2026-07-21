@@ -54,4 +54,4 @@ jobs:
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push origin main
 
-# Dieser Merge startet den geprüften Import.
+# Korrigiertes, lokal validiertes Paket importieren.
