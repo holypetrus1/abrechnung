@@ -1,37 +1,37 @@
 # Urlaubskasse Woche 1
 
-**Stand:** 21.07.2026, 17:28 Uhr  
+**Stand:** 21.07.2026, 19:53 Uhr  
 **Status:** Woche 1 bleibt geöffnet, bis der Beginn von Woche 2 ausdrücklich genannt wird.  
 **Verbindliche Datenquelle:** `data/buchungen.json`
 
 ## Standardlogik
 
 - Normale Gemeinschaftsausgaben tragen Simon, Katrin, Onkel und Tante zu je 25 %.
-- Abweichende Kostenblöcke werden je Vorgang mit eigenem Verteilungsschlüssel geführt.
+- Oma und Großvater tragen standardmäßig keinen Kostenanteil, können aber als Zahlende ein Guthaben erhalten.
+- Abweichende Kostenblöcke werden je Vorgang separat geführt.
 - Zahlende Person und Kostenverteilung werden getrennt erfasst.
-- Zahlungen vom Gemeinschaftskonto Katrin & Simon werden beiden hälftig gutgeschrieben.
-- Pfand zählt wie eine normale Ausgabe.
 
 ## Aktueller Gesamtstand
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 166,13 € | 444,76 € | +278,63 € |
-| Katrin | 199,72 € | 116,56 € | -83,16 € |
-| Onkel | 168,60 € | 141,70 € | -26,90 € |
-| Tante | 168,57 € | 0,00 € | -168,57 € |
+| Simon | 170,13 € | 444,76 € | +274,63 € |
+| Katrin | 203,72 € | 116,56 € | -87,16 € |
+| Onkel | 172,60 € | 141,70 € | -30,90 € |
+| Tante | 172,57 € | 0,00 € | -172,57 € |
 | Oma | 0,00 € | 0,00 € | 0,00 € |
-| Großvater | 0,00 € | 0,00 € | 0,00 € |
+| Großvater | 0,00 € | 16,00 € | +16,00 € |
 
-**Verrechnete Ausgaben gesamt:** 703,02 €  
-**Beleg- und Ausgabensumme einschließlich ausgeschlossener Positionen:** 760,99 €  
+**Verrechnete Ausgaben gesamt:** 719,02 €  
+**Beleg- und Ausgabensumme einschließlich ausgeschlossener Positionen:** 776,99 €  
 **Ausgeschlossen:** 57,97 €
 
 **Vorgeschlagener Ausgleich:**
 
-- Katrin überweist Simon 83,16 €.
-- Onkel überweist Simon 26,90 €.
-- Tante überweist Simon 168,57 €.
+- Katrin überweist Simon 87,16 €.
+- Onkel überweist Simon 30,90 €.
+- Tante überweist Simon 156,57 €.
+- Tante überweist Großvater 16,00 €.
 
 ---
 
@@ -53,17 +53,12 @@
 | BON-20260716-003 | 16.07.2026 | BIO COMPANY Turmstraße | 24,74 € | 24,74 € | 0,00 € | Onkel |
 | BON-20260716-004 | 16.07.2026 | E-Center Berlin-Moabit | 81,96 € | 81,96 € | 0,00 € | Onkel |
 | AUS-20260721-001 | 21.07.2026 | REWE | 35,00 € | 35,00 € | 0,00 € | Onkel |
+| AUS-20260721-002 | 21.07.2026 | Bezahlung Großvater | 16,00 € | 16,00 € | 0,00 € | Großvater |
 
 ---
 
 ## Neu erfasst am 21.07.2026
 
-- **BIO COMPANY Turmstraße:** Bon vom 16.07.2026 über 24,74 €, vollständig Gemeinschaft, bezahlt von Onkel.
-- **E-Center Berlin-Moabit:** Bon vom 16.07.2026 über 81,96 €, vollständig Gemeinschaft, bezahlt von Onkel.
-- **REWE:** Einkauf vom 21.07.2026 ohne Bon über 35,00 €, vollständig Gemeinschaft, bezahlt von Onkel.
-
-Die drei neuen Ausgaben ergeben zusammen **141,70 €**.
-
-## Offener Vorgang
-
-- `BON-20260717-001` – Barracuda Fisch, Matjesfilets 25,00 €; weiterhin als Sammelposition, bis der Originalbon vorliegt.
+- **Bezahlung Großvater:** 16,00 €, vollständig Gemeinschaftsausgabe, bezahlt vom Großvater.
+- Kostenanteil: Simon, Katrin, Onkel und Tante jeweils 4,00 €.
+- Zahlungsguthaben Großvater: 16,00 €.
