@@ -52,3 +52,5 @@ jobs:
           git add data/buchungen.json data/protokoll.md data/status.md exports/Urlaubskasse_Woche1.xlsx tmp_update .github/workflows/apply-week1-update.yml
           git commit -m "Vier Ausgaben mit Kostenblöcken erfassen"
           git push
+
+# Zweiter Push: Workflow war bereits auf dem Hauptzweig vorhanden und wird dadurch sicher ausgelöst.
