@@ -1,36 +1,37 @@
 # Urlaubskasse Woche 1
 
-**Stand:** 21.07.2026, 19:53 Uhr  
+**Stand:** 23.07.2026, 13:09 Uhr  
 **Status:** Woche 1 bleibt geöffnet, bis der Beginn von Woche 2 ausdrücklich genannt wird.  
 **Verbindliche Datenquelle:** `data/buchungen.json`
 
 ## Standardlogik
 
 - Normale Gemeinschaftsausgaben tragen Simon, Katrin, Onkel und Tante zu je 25 %.
-- Oma und Großvater tragen standardmäßig keinen Kostenanteil, können aber als Zahlende ein Guthaben erhalten.
-- Abweichende Kostenblöcke werden je Vorgang separat geführt.
+- Abweichende Kostenblöcke werden je Vorgang mit eigenem Verteilungsschlüssel geführt.
 - Zahlende Person und Kostenverteilung werden getrennt erfasst.
+- Zahlungen vom Gemeinschaftskonto Katrin & Simon werden beiden hälftig gutgeschrieben.
+- Pfand zählt wie eine normale Ausgabe.
 
 ## Aktueller Gesamtstand
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 170,13 € | 444,76 € | +274,63 € |
-| Katrin | 203,72 € | 116,56 € | -87,16 € |
-| Onkel | 172,60 € | 141,70 € | -30,90 € |
-| Tante | 172,57 € | 0,00 € | -172,57 € |
+| Simon | 189,89 € | 523,79 € | +333,90 € |
+| Katrin | 223,48 € | 116,56 € | -106,92 € |
+| Onkel | 192,36 € | 141,70 € | -50,66 € |
+| Tante | 192,32 € | 0,00 € | -192,32 € |
 | Oma | 0,00 € | 0,00 € | 0,00 € |
 | Großvater | 0,00 € | 16,00 € | +16,00 € |
 
-**Verrechnete Ausgaben gesamt:** 719,02 €  
-**Beleg- und Ausgabensumme einschließlich ausgeschlossener Positionen:** 776,99 €  
+**Verrechnete Ausgaben gesamt:** 798,05 €  
+**Beleg- und Ausgabensumme einschließlich ausgeschlossener Positionen:** 856,02 €  
 **Ausgeschlossen:** 57,97 €
 
 **Vorgeschlagener Ausgleich:**
 
-- Katrin überweist Simon 87,16 €.
-- Onkel überweist Simon 30,90 €.
-- Tante überweist Simon 156,57 €.
+- Katrin überweist Simon 106,92 €.
+- Onkel überweist Simon 50,66 €.
+- Tante überweist Simon 176,32 €.
 - Tante überweist Großvater 16,00 €.
 
 ---
@@ -54,11 +55,18 @@
 | BON-20260716-004 | 16.07.2026 | E-Center Berlin-Moabit | 81,96 € | 81,96 € | 0,00 € | Onkel |
 | AUS-20260721-001 | 21.07.2026 | REWE | 35,00 € | 35,00 € | 0,00 € | Onkel |
 | AUS-20260721-002 | 21.07.2026 | Bezahlung Großvater | 16,00 € | 16,00 € | 0,00 € | Großvater |
+| BON-20260723-001 | 23.07.2026 | Frischemarkt Boitzenburg | 59,03 € | 59,03 € | 0,00 € | Simon |
+| AUS-20260721-003 | 21.07.2026 | Tierpark Angermünde | 20,00 € | 20,00 € | 0,00 € | Simon |
 
 ---
 
-## Neu erfasst am 21.07.2026
+## Neu erfasst am 23.07.2026
 
-- **Bezahlung Großvater:** 16,00 €, vollständig Gemeinschaftsausgabe, bezahlt vom Großvater.
-- Kostenanteil: Simon, Katrin, Onkel und Tante jeweils 4,00 €.
-- Zahlungsguthaben Großvater: 16,00 €.
+- **Frischemarkt Boitzenburg:** Bon vom 23.07.2026 über 59,03 €, vollständig Gemeinschaft, bezahlt von Simon.
+- **Tierpark Angermünde:** Ausgabe ohne Bon vom Dienstag, 21.07.2026, über 20,00 €, vollständig Gemeinschaft, bezahlt von Simon.
+
+Die beiden neuen Ausgaben ergeben zusammen **79,03 €**.
+
+## Offener Vorgang
+
+- `BON-20260717-001` – Barracuda Fisch, Matjesfilets 25,00 €; weiterhin als Sammelposition, bis der Originalbon vorliegt.
