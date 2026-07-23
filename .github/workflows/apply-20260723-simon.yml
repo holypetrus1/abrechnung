@@ -1,0 +1,30 @@
+name: Apply Simon expenses 2026-07-23
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/apply-20260723-simon.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Apply receipt data
+        run: python scripts/apply_20260723_simon.py
+
+      - name: Commit generated files and remove temporary updater
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm scripts/apply_20260723_simon.py
+          git rm .github/workflows/apply-20260723-simon.yml
+          git add data/buchungen.json data/status.md data/protokoll.md
+          git commit -m "Frischemarkt und Tierpark erfassen"
+          git push
