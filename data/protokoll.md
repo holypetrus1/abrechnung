@@ -106,3 +106,14 @@ Die beiden neuen Ausgaben ergeben zusammen **79,03 €**.
 - Bezahlt von: Onkel
 - Verteilung: Simon 6,70 €, Katrin 6,70 €, Onkel 6,69 €, Tante 6,69 €
 - Keine Abzüge.
+
+
+---
+
+## AUS-20260724-001 – Ponyreiten
+
+- Datum: 24.07.2026
+- Betrag: **65,00 €**
+- Bezahlt von: Simon
+- Ohne Bon nach Nutzerangabe erfasst
+- Verteilung: Simon **12,50 €**, Katrin **12,50 €**, Onkel **20,00 €**, Tante **20,00 €**

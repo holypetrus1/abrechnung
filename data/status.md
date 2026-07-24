@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 1 – Arbeitsstatus
 
-Stand: 24.07.2026 nach 19 erfassten Vorgängen.
+Stand: 24.07.2026 nach 20 erfassten Vorgängen.
 
 ## Verbindliche Regeln
 
@@ -13,26 +13,26 @@ Stand: 24.07.2026 nach 19 erfassten Vorgängen.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 836,87 €
-- Beleg-/Ausgabensumme: 899,24 €
+- Verrechnete Ausgaben: 901,87 €
+- Beleg-/Ausgabensumme: 964,24 €
 - Ausgeschlossen: 62,37 €
-- Simon: +324,19 €
-- Katrin: −116,63 €
-- Onkel: −21,54 €
-- Tante: −202,02 €
+- Simon: +376,69 €
+- Katrin: −129,13 €
+- Onkel: −41,54 €
+- Tante: −222,02 €
 - Großvater: +16,00 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 116,63 €.
-- Onkel überweist Simon 21,54 €.
-- Tante überweist Simon 186,02 €.
+- Katrin überweist Simon 129,13 €.
+- Onkel überweist Simon 41,54 €.
+- Tante überweist Simon 206,02 €.
 - Tante überweist Großvater 16,00 €.
 
 ## Zuletzt verarbeitet
 
-- Netto Marken-Discount Gramzow: 26,78 €, vollständig Gemeinschaft, bezahlt von Onkel.
-- Das Kaufdatum war auf dem Bonfoto nicht sichtbar und wurde dem Eingangstag 24.07.2026 zugeordnet.
+- Ponyreiten, 24.07.2026: 65,00 €, bezahlt von Simon.
+- Verteilung: Simon 12,50 €, Katrin 12,50 €, Onkel 20,00 €, Tante 20,00 €.
 
 ## Fortsetzung
 
