@@ -93,3 +93,16 @@ Die beiden neuen Ausgaben ergeben zusammen **79,03 €**.
 - Ausgeschlossen: **0,00 €**
 - Bezahlt von: Onkel
 - Verteilung: Simon und Katrin je **6,70 €**, Onkel und Tante je **6,69 €**
+
+
+---
+
+## BON-20260724-001 – Netto Marken-Discount Gramzow
+
+- Erfasst/Kaufdatum: 24.07.2026 (Datum auf Foto nicht sichtbar; dem Eingangstag zugeordnet)
+- Belegsumme: **26,78 €**
+- Gemeinschaftsausgabe: **26,78 €**
+- Ausgeschlossen: **0,00 €**
+- Bezahlt von: Onkel
+- Verteilung: Simon 6,70 €, Katrin 6,70 €, Onkel 6,69 €, Tante 6,69 €
+- Keine Abzüge.

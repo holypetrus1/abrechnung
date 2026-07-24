@@ -31,8 +31,8 @@ Stand: 24.07.2026 nach 19 erfassten Vorgängen.
 
 ## Zuletzt verarbeitet
 
-- Netto Marken-Discount Gramzow: 26,78 €, bezahlt von Onkel, vollständig Gemeinschaft, ohne Abzüge.
-- Das Kaufdatum wurde mangels sichtbarer Datumszeile auf dem Foto vorläufig auf 24.07.2026 gesetzt.
+- Netto Marken-Discount Gramzow: 26,78 €, vollständig Gemeinschaft, bezahlt von Onkel.
+- Das Kaufdatum war auf dem Bonfoto nicht sichtbar und wurde dem Eingangstag 24.07.2026 zugeordnet.
 
 ## Fortsetzung
 
