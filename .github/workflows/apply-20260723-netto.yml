@@ -1,0 +1,21 @@
+name: Apply Netto receipt 2026-07-23
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/apply-20260723-netto.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/apply_20260723_netto.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm scripts/apply_20260723_netto.py .github/workflows/apply-20260723-netto.yml
+          git add data/buchungen.json data/status.md data/protokoll.md
+          git commit -m "Netto-Bon mit Zeitschriftenabzug erfassen"
+          git push
