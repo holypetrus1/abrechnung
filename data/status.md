@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 1 – Arbeitsstatus
 
-Stand: 23.07.2026 nach 17 erfassten Vorgängen.
+Stand: 23.07.2026 nach 18 erfassten Vorgängen.
 
 ## Verbindliche Regeln
 
@@ -13,26 +13,25 @@ Stand: 23.07.2026 nach 17 erfassten Vorgängen.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 798,05 €
-- Beleg-/Ausgabensumme: 856,02 €
-- Ausgeschlossen: 57,97 €
-- Simon: +333,90 €
-- Katrin: −106,92 €
-- Onkel: −50,66 €
-- Tante: −192,32 €
+- Verrechnete Ausgaben: 810,09 €
+- Beleg-/Ausgabensumme: 872,46 €
+- Ausgeschlossen: 62,37 €
+- Simon: +330,89 €
+- Katrin: −109,93 €
+- Onkel: −41,63 €
+- Tante: −195,33 €
 - Großvater: +16,00 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 106,92 €.
-- Onkel überweist Simon 50,66 €.
-- Tante überweist Simon 176,32 €.
+- Katrin überweist Simon 109,93 €.
+- Onkel überweist Simon 41,63 €.
+- Tante überweist Simon 179,33 €.
 - Tante überweist Großvater 16,00 €.
 
 ## Zuletzt verarbeitet
 
-- Frischemarkt Boitzenburg, 23.07.2026: 59,03 €, bezahlt von Simon, vollständig Gemeinschaft.
-- Tierpark Angermünde, 21.07.2026: 20,00 €, bezahlt von Simon, vollständig Gemeinschaft, ohne Bon.
+- Netto Marken-Discount Gramzow, 23.07.2026: Bon 16,44 €, davon 4,40 € Zeitschrift ausgeschlossen; 12,04 € Gemeinschaft, bezahlt von Onkel.
 
 ## Fortsetzung
 

@@ -70,3 +70,15 @@ Die beiden neuen Ausgaben ergeben zusammen **79,03 €**.
 ## Offener Vorgang
 
 - `BON-20260717-001` – Barracuda Fisch, Matjesfilets 25,00 €; weiterhin als Sammelposition, bis der Originalbon vorliegt.
+
+
+---
+
+## BON-20260723-002 – Netto Marken-Discount Gramzow
+
+- Kauf: 23.07.2026, 13:41 Uhr
+- Belegsumme: **16,44 €**
+- Ausgeschlossen: **4,40 €** (Zeitschrift)
+- Gemeinschaftsausgabe: **12,04 €**
+- Bezahlt von: Onkel
+- Verteilung: Simon, Katrin, Onkel und Tante je **3,01 €**
