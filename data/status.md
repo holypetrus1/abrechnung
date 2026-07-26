@@ -1,39 +1,34 @@
-# Urlaubskasse Woche 1 – Arbeitsstatus
+# Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 24.07.2026 nach 20 erfassten Vorgängen.
+Stand: 26.07.2026, neu aufgesetzt; noch keine Vorgänge erfasst.
 
 ## Verbindliche Regeln
 
-- Woche 1 bleibt geöffnet, bis der Nutzer ausdrücklich den Beginn von Woche 2 nennt.
-- Normale Gemeinschaftsausgaben tragen Simon, Katrin, Onkel und Tante zu je 25 %.
-- Ein Vorgang kann mehrere Kostenblöcke mit eigenen Verteilungsschlüsseln enthalten.
+- Woche 2 ist die aktive Abrechnungsperiode.
+- Normale Gemeinschaftsausgaben tragen Simon, Katrin, Hummel W und Hummel M zu je 25 %.
+- Haushalte: Simon & Katrin sowie Hummel W & Hummel M.
+- Die Standardverteilung erfolgt pro Person, nicht pro Haushalt.
 - Zahlende Person und Kostentragung werden getrennt erfasst.
+- Gemeinsame Zahlungskonten werden den beiden Mitgliedern des jeweiligen Haushalts hälftig gutgeschrieben; Rundungscent werden dokumentiert.
+- Ein Vorgang kann mehrere Kostenblöcke mit eigenen Verteilungsschlüsseln enthalten.
 - Pfand wird wie eine normale Ausgabe behandelt.
-- Keine Zahlungsnummern oder Originalbelege im Repo.
+- Keine Zahlungsnummern oder Originalbelege im Repository.
+- Korrekturen werden nachvollziehbar und append-only dokumentiert.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 901,87 €
-- Beleg-/Ausgabensumme: 964,24 €
-- Ausgeschlossen: 62,37 €
-- Simon: +376,69 €
-- Katrin: −129,13 €
-- Onkel: −41,54 €
-- Tante: −222,02 €
-- Großvater: +16,00 €
+- Verrechnete Ausgaben: 0,00 €
+- Beleg-/Ausgabensumme: 0,00 €
+- Ausgeschlossen: 0,00 €
+- Simon: 0,00 €
+- Katrin: 0,00 €
+- Hummel W: 0,00 €
+- Hummel M: 0,00 €
 
-## Vorgeschlagener Ausgleich
+## Archiv Woche 1
 
-- Katrin überweist Simon 129,13 €.
-- Onkel überweist Simon 41,54 €.
-- Tante überweist Simon 206,02 €.
-- Tante überweist Großvater 16,00 €.
-
-## Zuletzt verarbeitet
-
-- Ponyreiten, 24.07.2026: 65,00 €, bezahlt von Simon.
-- Verteilung: Simon 12,50 €, Katrin 12,50 €, Onkel 20,00 €, Tante 20,00 €.
+Woche 1 ist abgeschlossen und über die Archivfunktion der Website erreichbar. Der vollständige Datenbestand und die darin eingebettete Abrechnungslogik bleiben unverändert erhalten.
 
 ## Fortsetzung
 
-Neue Belege weiterhin Woche 1 zuordnen, bis der Nutzer ausdrücklich Woche 2 startet. Danach `data/buchungen.json`, `data/protokoll.md`, `data/status.md`, Excel und Website gemeinsam aktualisieren.
+Vor jedem neuen Beleg zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und – sobald vorhanden – Excel-Export gemeinsam aktualisieren.
