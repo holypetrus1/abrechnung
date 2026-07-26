@@ -1,48 +1,50 @@
-# Urlaubskasse Woche 1
+# Urlaubskasse Woche 1 – Archiv
 
-**Stand:** 23.07.2026, 13:09 Uhr  
-**Status:** Woche 1 bleibt geöffnet, bis der Beginn von Woche 2 ausdrücklich genannt wird.  
+**Zeitraum:** 16.07.2026 bis 24.07.2026  
+**Archiviert:** 26.07.2026  
+**Status:** Abgeschlossen  
 **Verbindliche Datenquelle:** `data/buchungen.json`
 
-## Standardlogik
+## Abrechnungslogik
 
-- Normale Gemeinschaftsausgaben tragen Simon, Katrin, Onkel und Tante zu je 25 %.
+- Normale Gemeinschaftsausgaben tragen Simon, Katrin, Onkel und Tante zu je **25 %**.
 - Abweichende Kostenblöcke werden je Vorgang mit eigenem Verteilungsschlüssel geführt.
 - Zahlende Person und Kostenverteilung werden getrennt erfasst.
-- Zahlungen vom Gemeinschaftskonto Katrin & Simon werden beiden hälftig gutgeschrieben.
+- Zahlungen vom Gemeinschaftskonto Katrin & Simon werden beiden hälftig gutgeschrieben; Rundungscent sind dokumentiert.
 - Pfand zählt wie eine normale Ausgabe.
+- Korrekturen bleiben nachvollziehbar; Originalbelege und Zahlungsnummern werden nicht im Repository gespeichert.
 
-## Aktueller Gesamtstand
+## Finaler Kassensturz
 
-| Person | Belastung | Zahlungsguthaben | Saldo |
-|---|---:|---:|---:|
-| Simon | 189,89 € | 523,79 € | +333,90 € |
-| Katrin | 223,48 € | 116,56 € | -106,92 € |
-| Onkel | 192,36 € | 141,70 € | -50,66 € |
-| Tante | 192,32 € | 0,00 € | -192,32 € |
-| Oma | 0,00 € | 0,00 € | 0,00 € |
-| Großvater | 0,00 € | 16,00 € | +16,00 € |
+- **20 Vorgänge**
+- **Beleg- und Ausgabensumme:** 964,24 €
+- **Ausgeschlossen:** 62,37 €
+- **Verrechnete Ausgaben:** 901,87 €
+- **Kontrollsumme der Salden:** 0,00 €
 
-**Verrechnete Ausgaben gesamt:** 798,05 €  
-**Beleg- und Ausgabensumme einschließlich ausgeschlossener Positionen:** 856,02 €  
-**Ausgeschlossen:** 57,97 €
+| Person | Finaler Saldo |
+|---|---:|
+| Simon | +376,69 € |
+| Katrin | −129,13 € |
+| Onkel | −41,54 € |
+| Tante | −222,02 € |
+| Oma | 0,00 € |
+| Großvater | +16,00 € |
 
-**Vorgeschlagener Ausgleich:**
+## Ausgleichsvorschlag
 
-- Katrin überweist Simon 106,92 €.
-- Onkel überweist Simon 50,66 €.
-- Tante überweist Simon 176,32 €.
+- Katrin überweist Simon 129,13 €.
+- Onkel überweist Simon 41,54 €.
+- Tante überweist Simon 206,02 €.
 - Tante überweist Großvater 16,00 €.
 
----
+## Alle Vorgänge
 
-## Bisherige Vorgänge
-
-| Vorgang | Datum | Händler | Belegsumme | Verrechnet | Ausgeschlossen | Zahlung |
+| Vorgang | Datum | Händler / Ausgabe | Belegsumme | Verrechnet | Ausgeschlossen | Zahlung |
 |---|---|---|---:|---:|---:|---|
 | BON-20260716-001 | 16.07.2026 | Kaufland | 63,28 € | 34,83 € | 28,45 € | Gemeinschaftskonto Katrin & Simon |
 | BON-20260716-002 | 16.07.2026 | BIO COMPANY via Wolt | 38,37 € | 12,82 € | 25,55 € | Gemeinschaftskonto Katrin & Simon |
-| GUT-20260716-001 | 16.07.2026 | Wolt / BIO COMPANY | -3,61 € | -3,61 € | 0,00 € | Gemeinschaftskonto Katrin & Simon |
+| GUT-20260716-001 | 16.07.2026 | Wolt / BIO COMPANY | −3,61 € | −3,61 € | 0,00 € | Gemeinschaftskonto Katrin & Simon |
 | BON-20260717-001 | 17.07.2026 | Barracuda Fisch | 25,00 € | 25,00 € | 0,00 € | Simon |
 | BON-20260717-002 | 17.07.2026 | BIO COMPANY Rathauscenter | 73,41 € | 69,44 € | 3,97 € | Gemeinschaftskonto Katrin & Simon |
 | BON-20260718-001 | 18.07.2026 | Netto Marken-Discount | 71,43 € | 71,43 € | 0,00 € | Gemeinschaftskonto Katrin & Simon |
@@ -57,63 +59,10 @@
 | AUS-20260721-002 | 21.07.2026 | Bezahlung Großvater | 16,00 € | 16,00 € | 0,00 € | Großvater |
 | BON-20260723-001 | 23.07.2026 | Frischemarkt Boitzenburg | 59,03 € | 59,03 € | 0,00 € | Simon |
 | AUS-20260721-003 | 21.07.2026 | Tierpark Angermünde | 20,00 € | 20,00 € | 0,00 € | Simon |
+| BON-20260723-002 | 23.07.2026 | Netto Marken-Discount Gramzow | 16,44 € | 12,04 € | 4,40 € | Onkel |
+| BON-20260724-001 | 24.07.2026 | Netto Marken-Discount Gramzow | 26,78 € | 26,78 € | 0,00 € | Onkel |
+| AUS-20260724-001 | 24.07.2026 | Ponyreiten | 65,00 € | 65,00 € | 0,00 € | Simon |
 
----
+## Besondere Abschlussprüfung
 
-## Neu erfasst am 23.07.2026
-
-- **Frischemarkt Boitzenburg:** Bon vom 23.07.2026 über 59,03 €, vollständig Gemeinschaft, bezahlt von Simon.
-- **Tierpark Angermünde:** Ausgabe ohne Bon vom Dienstag, 21.07.2026, über 20,00 €, vollständig Gemeinschaft, bezahlt von Simon.
-
-Die beiden neuen Ausgaben ergeben zusammen **79,03 €**.
-
-## Offener Vorgang
-
-- `BON-20260717-001` – Barracuda Fisch, Matjesfilets 25,00 €; weiterhin als Sammelposition, bis der Originalbon vorliegt.
-
-
----
-
-## BON-20260723-002 – Netto Marken-Discount Gramzow
-
-- Kauf: 23.07.2026, 13:41 Uhr
-- Belegsumme: **16,44 €**
-- Ausgeschlossen: **4,40 €** (Zeitschrift)
-- Gemeinschaftsausgabe: **12,04 €**
-- Bezahlt von: Onkel
-- Verteilung: Simon, Katrin, Onkel und Tante je **3,01 €**
-
-
----
-
-## BON-20260724-001 – Netto Marken-Discount Gramzow
-
-- Kaufdatum: **vorläufig 24.07.2026**; Datumszeile auf dem Foto nicht sichtbar
-- Belegsumme und Gemeinschaftsausgabe: **26,78 €**
-- Ausgeschlossen: **0,00 €**
-- Bezahlt von: Onkel
-- Verteilung: Simon und Katrin je **6,70 €**, Onkel und Tante je **6,69 €**
-
-
----
-
-## BON-20260724-001 – Netto Marken-Discount Gramzow
-
-- Erfasst/Kaufdatum: 24.07.2026 (Datum auf Foto nicht sichtbar; dem Eingangstag zugeordnet)
-- Belegsumme: **26,78 €**
-- Gemeinschaftsausgabe: **26,78 €**
-- Ausgeschlossen: **0,00 €**
-- Bezahlt von: Onkel
-- Verteilung: Simon 6,70 €, Katrin 6,70 €, Onkel 6,69 €, Tante 6,69 €
-- Keine Abzüge.
-
-
----
-
-## AUS-20260724-001 – Ponyreiten
-
-- Datum: 24.07.2026
-- Betrag: **65,00 €**
-- Bezahlt von: Simon
-- Ohne Bon nach Nutzerangabe erfasst
-- Verteilung: Simon **12,50 €**, Katrin **12,50 €**, Onkel **20,00 €**, Tante **20,00 €**
+Die beim Lidl-Bon enthaltenen **Always-Binden für 4,99 €** sind im vollständigen Datenbestand enthalten. Bezahlt wurde der Bon von Simon; die Binden belasten Onkel mit 2,50 € und Tante mit 2,49 €.
