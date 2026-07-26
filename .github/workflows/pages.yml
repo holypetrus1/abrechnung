@@ -41,6 +41,7 @@ jobs:
           mkdir -p _site/data _site/exports
           cp index.html styles.css app.js _site/
           cp data/buchungen.json data/protokoll.md _site/data/
+          cp data/buchungen_woche2.json data/protokoll_woche2.md _site/data/
           cp exports/Urlaubskasse_Woche1.xlsx _site/exports/
           touch _site/.nojekyll
 
