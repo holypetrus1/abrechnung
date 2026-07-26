@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "currency": "EUR",
+  "week": "Woche 2",
+  "week_status": "open",
+  "updated_at": "2026-07-26T13:00:00+02:00",
+  "privacy": {
+    "store_original_receipts": false,
+    "store_payment_card_or_account_numbers": false,
+    "allowed_payment_labels": [
+      "Gemeinschaftskonto Katrin & Simon",
+      "Gemeinschaftskonto Hummel W & Hummel M",
+      "Simon",
+      "Katrin",
+      "Hummel W",
+      "Hummel M"
+    ]
+  },
+  "rules": {
+    "default_cost_shares": {
+      "Simon": 0.25,
+      "Katrin": 0.25,
+      "Hummel W": 0.25,
+      "Hummel M": 0.25
+    },
+    "default_distribution_basis": "equal_per_adult_not_per_household",
+    "children_have_own_balance": false,
+    "deposit_treatment": "normal_expense",
+    "joint_account_credit_split": "half_to_both_household_members_with_rounding_cent_documented",
+    "multiple_cost_groups_per_transaction": true,
+    "week_transition_requires_explicit_user_instruction": true,
+    "record_purchase_and_entry_time_separately": true,
+    "corrections_are_append_only": true
+  },
+  "households": [
+    {
+      "id": "H1",
+      "name": "Simon & Katrin",
+      "members": ["Simon", "Katrin"],
+      "children": []
+    },
+    {
+      "id": "H2",
+      "name": "Hummeln",
+      "members": ["Hummel W", "Hummel M"],
+      "children": []
+    }
+  ],
+  "transactions": [],
+  "balances": {
+    "total_receipt_expenses": 0.0,
+    "total_holiday_expenses": 0.0,
+    "total_excluded": 0.0,
+    "persons": [
+      {"person": "Simon", "charge": 0.0, "payment_credit": 0.0, "balance": 0.0},
+      {"person": "Katrin", "charge": 0.0, "payment_credit": 0.0, "balance": 0.0},
+      {"person": "Hummel W", "charge": 0.0, "payment_credit": 0.0, "balance": 0.0},
+      {"person": "Hummel M", "charge": 0.0, "payment_credit": 0.0, "balance": 0.0}
+    ],
+    "suggested_transfers": [],
+    "control_sum": 0.0
+  }
+}
