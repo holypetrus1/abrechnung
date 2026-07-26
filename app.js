@@ -1,4 +1,26 @@
+const weekConfigs = {
+  current: {
+    label: "Woche 2",
+    dataPath: "data/buchungen_woche2.json",
+    protocolPath: "data/protokoll_woche2.md",
+    excelPath: null,
+    excelName: null,
+    isArchive: false,
+  },
+  archive: {
+    label: "Woche 1",
+    dataPath: "data/buchungen.json",
+    protocolPath: "data/protokoll.md",
+    excelPath: "exports/Urlaubskasse_Woche1.xlsx",
+    excelName: "Urlaubskasse_Woche1.xlsx",
+    isArchive: true,
+  },
+};
+
 const state = {
+  config: new URLSearchParams(location.search).get("woche") === "1"
+    ? weekConfigs.archive
+    : weekConfigs.current,
   data: null,
   protocol: "",
 };
@@ -146,7 +168,48 @@ function activateView(viewName, updateHash = true) {
   });
 
   if (updateHash) {
-    history.replaceState(null, "", `#${viewName}`);
+    history.replaceState(null, "", `${location.pathname}${location.search}#${viewName}`);
+  }
+}
+
+function applyWeekConfig() {
+  const { config } = state;
+  document.title = `Urlaubskasse · ${config.label}`;
+  document.querySelector("#week-title").textContent = config.label;
+  document.querySelector("#protocol-link").href = config.protocolPath;
+  document.querySelector("#view-mode").textContent = config.isArchive ? "Archiv · abgeschlossen" : "Aktive Woche";
+
+  const weekSwitch = document.querySelector("#week-switch");
+  if (config.isArchive) {
+    weekSwitch.href = location.pathname || "./";
+    weekSwitch.textContent = "Zur aktuellen Woche";
+  } else {
+    weekSwitch.href = "?woche=1";
+    weekSwitch.textContent = "Archiv · Woche 1";
+  }
+
+  const excelTitle = document.querySelector("#excel-title");
+  const excelDescription = document.querySelector("#excel-description");
+  const excelDownload = document.querySelector("#excel-download");
+  const excelMeta = document.querySelector("#excel-meta");
+
+  excelTitle.textContent = `Urlaubskasse ${config.label}`;
+  if (config.excelPath) {
+    excelDescription.textContent = "Die vollständige Excel-Datei mit dem abgeschlossenen Datenstand steht hier unverändert zum Download bereit.";
+    excelDownload.href = config.excelPath;
+    excelDownload.setAttribute("download", "");
+    excelDownload.removeAttribute("aria-disabled");
+    excelDownload.classList.remove("is-disabled");
+    excelDownload.textContent = "Excel-Datei herunterladen";
+    excelMeta.textContent = `Dateiname: ${config.excelName}`;
+  } else {
+    excelDescription.textContent = "Der Excel-Export wird nach dem ersten erfassten Vorgang bereitgestellt.";
+    excelDownload.removeAttribute("href");
+    excelDownload.removeAttribute("download");
+    excelDownload.setAttribute("aria-disabled", "true");
+    excelDownload.classList.add("is-disabled");
+    excelDownload.textContent = "Noch kein Export vorhanden";
+    excelMeta.textContent = `${config.label} enthält noch keine Buchungen.`;
   }
 }
 
@@ -161,6 +224,11 @@ function renderSummary(data) {
 
 function renderPurchases(data) {
   const list = document.querySelector("#purchase-list");
+  if (!data.transactions.length) {
+    list.innerHTML = '<p class="empty-state">Noch keine Ausgaben erfasst. Die ersten Bons können jetzt eingepflegt werden.</p>';
+    return;
+  }
+
   const transactions = [...data.transactions].sort(
     (left, right) => new Date(right.purchase_at) - new Date(left.purchase_at),
   );
@@ -220,8 +288,8 @@ function showError(error) {
 
 async function loadData() {
   const [dataResponse, protocolResponse] = await Promise.all([
-    fetch("data/buchungen.json", { cache: "no-store" }),
-    fetch("data/protokoll.md", { cache: "no-store" }),
+    fetch(state.config.dataPath, { cache: "no-store" }),
+    fetch(state.config.protocolPath, { cache: "no-store" }),
   ]);
 
   if (!dataResponse.ok) {
@@ -267,5 +335,6 @@ function initNavigation() {
   });
 }
 
+applyWeekConfig();
 initNavigation();
 loadData().catch(showError);
