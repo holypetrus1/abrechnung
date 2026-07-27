@@ -1,7 +1,7 @@
 # Urlaubskasse Woche 2
 
 **Beginn:** 26.07.2026  
-**Stand:** 27.07.2026, 13:45 Uhr  
+**Stand:** 27.07.2026, 18:54 Uhr  
 **Status:** Aktiv  
 **Verbindliche Datenquellen:** `data/buchungen_woche2.json` und `data/buchungen_woche2_nachtrag.json`
 
@@ -26,21 +26,21 @@
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 45,68 € | 188,13 € | +142,45 € |
-| Katrin | 45,66 € | 4,92 € | −40,74 € |
-| Hummel W | 44,82 € | 0,00 € | −44,82 € |
-| Hummel M | 56,89 € | 0,00 € | −56,89 € |
+| Simon | 49,58 € | 188,13 € | +138,55 € |
+| Katrin | 49,56 € | 14,92 € | −34,64 € |
+| Hummel W | 48,72 € | 5,60 € | −43,12 € |
+| Hummel M | 60,79 € | 0,00 € | −60,79 € |
 
-**Verrechnete Ausgaben gesamt:** 193,05 €  
-**Beleg- und Ausgabensumme:** 205,10 €  
+**Verrechnete Ausgaben gesamt:** 208,65 €  
+**Beleg- und Ausgabensumme:** 220,70 €  
 **Ausgeschlossen:** 12,05 €  
 **Kontrollsumme:** 0,00 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 40,74 €.
-- Hummel W überweist Simon 44,82 €.
-- Hummel M überweist Simon 56,89 €.
+- Katrin überweist Simon 34,64 €.
+- Hummel W überweist Simon 43,12 €.
+- Hummel M überweist Simon 60,79 €.
 
 ---
 
@@ -81,7 +81,6 @@ Coupons und die beiden Leergutgutschriften verbleiben im allgemeinen Kostenblock
 
 Pfand und die drei Leergutgutschriften verbleiben im allgemeinen Kostenblock.
 
-
 ---
 
 ## BON-20260725-002 – dm-drogerie markt
@@ -101,3 +100,23 @@ Pfand und die drei Leergutgutschriften verbleiben im allgemeinen Kostenblock.
 Die 9,85 € werden auf alle vier Personen verteilt: Simon **2,47 €**, Katrin **2,46 €**, Hummel W **2,46 €**, Hummel M **2,46 €**. Der Rundungscent liegt bei Simon.
 
 Dem Gemeinschaftskonto werden für den verrechneten Anteil Simon **4,93 €** und Katrin **4,92 €** gutgeschrieben. Sämtliche übrigen Positionen einschließlich des Coupons für die Gemüsebrühwürfel bleiben ausgeschlossen.
+
+---
+
+## AUS-20260727-001 – Räucherfisch
+
+- Datum: **27.07.2026**
+- Betrag: **10,00 €**
+- Bezahlt von: **Katrin**
+- Ohne Bon nach Nutzerangabe erfasst
+- Normale Gemeinschaftsausgabe: Simon, Katrin, Hummel W und Hummel M je **2,50 €**
+
+---
+
+## AUS-20260727-002 – Fähre
+
+- Datum: **27.07.2026**
+- Betrag: **5,60 €**
+- Bezahlt von: **Hummel W**
+- Ohne Bon nach Nutzerangabe erfasst
+- Normale Gemeinschaftsausgabe: Simon, Katrin, Hummel W und Hummel M je **1,40 €**
