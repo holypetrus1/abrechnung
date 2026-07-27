@@ -1,3 +1,43 @@
+const originalFetch = window.fetch.bind(window);
+
+window.fetch = async (input, init) => {
+  const url = typeof input === "string" ? input : input.url;
+  const isWeek2Data = url.endsWith("data/buchungen_woche2.json");
+
+  if (!isWeek2Data) {
+    return originalFetch(input, init);
+  }
+
+  const [baseResponse, supplementResponse] = await Promise.all([
+    originalFetch(input, init),
+    originalFetch("data/buchungen_woche2_nachtrag.json", { cache: "no-store" }),
+  ]);
+
+  if (!baseResponse.ok || !supplementResponse.ok) {
+    return baseResponse;
+  }
+
+  const [baseData, supplement] = await Promise.all([
+    baseResponse.json(),
+    supplementResponse.json(),
+  ]);
+
+  const mergedData = {
+    ...baseData,
+    updated_at: supplement.updated_at || baseData.updated_at,
+    transactions: [
+      ...(baseData.transactions || []),
+      ...(supplement.transactions || []),
+    ],
+    balances: supplement.balances || baseData.balances,
+  };
+
+  return new Response(JSON.stringify(mergedData), {
+    status: 200,
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const isArchive = new URLSearchParams(location.search).get("woche") === "1";
   if (isArchive) return;
