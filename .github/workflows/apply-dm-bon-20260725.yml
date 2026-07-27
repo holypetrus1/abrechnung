@@ -1,0 +1,30 @@
+name: dm-Bon vom 25.07.2026 eintragen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/apply_dm_bon_20260725.py"
+      - ".github/workflows/apply-dm-bon-20260725.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: dm-Bon eintragen
+        run: python scripts/apply_dm_bon_20260725.py
+
+      - name: Änderungen speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/buchungen_woche2.json data/protokoll_woche2.md data/status.md
+          git diff --cached --quiet || git commit -m "dm-Bon mit Auswahlpositionen erfassen"
+          git push
