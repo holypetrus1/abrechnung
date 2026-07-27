@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 27.07.2026, 13:30 Uhr; 2 Vorgänge erfasst.
+Stand: 27.07.2026, 13:45 Uhr; 3 Vorgänge erfasst.
 
 ## Verbindliche Regeln
 
@@ -11,42 +11,39 @@ Stand: 27.07.2026, 13:30 Uhr; 2 Vorgänge erfasst.
 - Ausgaben nur für einen Haushalt werden hälftig auf dessen Mitglieder verteilt; Rundungscent werden dokumentiert.
 - Zahlende Person und Kostentragung werden getrennt erfasst.
 - Gemeinsame Zahlungskonten werden den beiden Mitgliedern des jeweiligen Haushalts hälftig gutgeschrieben.
+- Bei teilweise berücksichtigten Bons wird nur der verrechnete Anteil als Zahlungsguthaben angesetzt.
 - Ein Vorgang kann mehrere Kostenblöcke mit eigenen Verteilungsschlüsseln enthalten.
 - Pfand wird wie eine normale Ausgabe behandelt.
 - Keine Zahlungsnummern oder Originalbelege im Repository.
 - Korrekturen werden nachvollziehbar und append-only dokumentiert.
 
-## Aktive Datenquellen
-
-- `data/buchungen_woche2.json` – erster Woche-2-Vorgang und Grundregeln
-- `data/buchungen_woche2_nachtrag.json` – REWE-Vorgang vom 25.07.2026 und aktueller Gesamtsaldo
-
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 183,20 €
-- Beleg-/Ausgabensumme: 183,20 €
-- Ausgeschlossen: 0,00 €
-- Simon: +139,99 €
-- Katrin: −43,20 €
-- Hummel W: −42,36 €
-- Hummel M: −54,43 €
+- Verrechnete Ausgaben: 193,05 €
+- Beleg-/Ausgabensumme: 205,10 €
+- Ausgeschlossen: 12,05 €
+- Simon: +142,45 €
+- Katrin: −40,74 €
+- Hummel W: −44,82 €
+- Hummel M: −56,89 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 43,20 €.
-- Hummel W überweist Simon 42,36 €.
-- Hummel M überweist Simon 54,43 €.
+- Katrin überweist Simon 40,74 €.
+- Hummel W überweist Simon 44,82 €.
+- Hummel M überweist Simon 56,89 €.
 
 ## Zuletzt verarbeitet
 
-- `BON-20260725-001` – REWE Beelitz-Heilstätten, 25.07.2026, 95,41 €, bezahlt von Simon.
-- Laugenstange und Pirulo Watermelo: 1,69 € nur Haushalt Simon & Katrin; Simon 0,85 €, Katrin 0,84 €.
-- Restlicher Bon: 93,72 €, je 23,43 € für alle vier Personen.
+- `BON-20260725-002` – dm-drogerie markt, 25.07.2026, Belegsumme 21,90 €.
+- Verrechnet: 3x Barista Hafer, Pinienkerne und Spirelli = 9,85 €.
+- Ausgeschlossen: 12,05 €.
+- Bezahlt vom Gemeinschaftskonto Katrin & Simon; Guthaben Simon 4,93 €, Katrin 4,92 €.
 
 ## Archiv Woche 1
 
-Woche 1 ist abgeschlossen und über die Archivfunktion der Website erreichbar. Der vollständige Datenbestand und die darin eingebettete Abrechnungslogik bleiben unverändert erhalten.
+Woche 1 ist abgeschlossen und über die Archivfunktion der Website erreichbar.
 
 ## Fortsetzung
 
-Vor jedem neuen Beleg `data/status.md`, `data/buchungen_woche2.json` und `data/buchungen_woche2_nachtrag.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und Excel-Export gemeinsam aktualisieren.
+Vor jedem neuen Beleg zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und Excel-Export gemeinsam aktualisieren.
