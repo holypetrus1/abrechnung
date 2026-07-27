@@ -1,0 +1,43 @@
+name: Woche-2-Excel aktualisieren
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "exports/Urlaubskasse_Woche2_aktuell.xlsx.b64"
+      - ".github/workflows/update-week2-export.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: week2-excel-update
+  cancel-in-progress: true
+
+jobs:
+  update-export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Excel-Datei dekodieren
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 --decode exports/Urlaubskasse_Woche2_aktuell.xlsx.b64 > exports/Urlaubskasse_Woche2.xlsx
+
+      - name: Aktualisierten Export speichern
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exports/Urlaubskasse_Woche2.xlsx
+          if git diff --cached --quiet; then
+            echo "Excel-Export ist bereits aktuell."
+            exit 0
+          fi
+          git commit -m "Excel-Export Woche 2 aktualisieren"
+          git push
