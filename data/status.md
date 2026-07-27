@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 26.07.2026, neu aufgesetzt; noch keine Vorgänge erfasst.
+Stand: 27.07.2026, 12:58 Uhr; 1 Vorgang erfasst.
 
 ## Verbindliche Regeln
 
@@ -17,13 +17,25 @@ Stand: 26.07.2026, neu aufgesetzt; noch keine Vorgänge erfasst.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 0,00 €
-- Beleg-/Ausgabensumme: 0,00 €
+- Verrechnete Ausgaben: 87,79 €
+- Beleg-/Ausgabensumme: 87,79 €
 - Ausgeschlossen: 0,00 €
-- Simon: 0,00 €
-- Katrin: 0,00 €
-- Hummel W: 0,00 €
-- Hummel M: 0,00 €
+- Simon: +68,86 €
+- Katrin: −18,93 €
+- Hummel W: −18,93 €
+- Hummel M: −31,00 €
+
+## Vorgeschlagener Ausgleich
+
+- Katrin überweist Simon 18,93 €.
+- Hummel W überweist Simon 18,93 €.
+- Hummel M überweist Simon 31,00 €.
+
+## Zuletzt verarbeitet
+
+- `BON-20260727-001` – EDEKA Rockmann, 27.07.2026, 87,79 €, bezahlt von Simon.
+- Pueblo Classic und vier 0,5-l-Getränke jeweils inklusive Pfand: 12,07 € ausschließlich Hummel M.
+- Restlicher Bon: 75,72 €, je 18,93 € für alle vier Personen.
 
 ## Archiv Woche 1
 
@@ -31,4 +43,4 @@ Woche 1 ist abgeschlossen und über die Archivfunktion der Website erreichbar. D
 
 ## Fortsetzung
 
-Vor jedem neuen Beleg zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und – sobald vorhanden – Excel-Export gemeinsam aktualisieren.
+Vor jedem neuen Beleg zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und Excel-Export gemeinsam aktualisieren.
