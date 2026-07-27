@@ -1,7 +1,8 @@
 # Urlaubskasse Woche 2
 
 **Beginn:** 26.07.2026  
-**Status:** Aktiv und bereit für die ersten Belege.  
+**Stand:** 27.07.2026, 12:58 Uhr  
+**Status:** Aktiv  
 **Verbindliche Datenquelle:** `data/buchungen_woche2.json`
 
 ## Teilnehmer und Haushalte
@@ -24,13 +25,40 @@
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 0,00 € | 0,00 € | 0,00 € |
-| Katrin | 0,00 € | 0,00 € | 0,00 € |
-| Hummel W | 0,00 € | 0,00 € | 0,00 € |
-| Hummel M | 0,00 € | 0,00 € | 0,00 € |
+| Simon | 18,93 € | 87,79 € | +68,86 € |
+| Katrin | 18,93 € | 0,00 € | −18,93 € |
+| Hummel W | 18,93 € | 0,00 € | −18,93 € |
+| Hummel M | 31,00 € | 0,00 € | −31,00 € |
 
-**Verrechnete Ausgaben gesamt:** 0,00 €  
-**Beleg- und Ausgabensumme:** 0,00 €  
-**Ausgeschlossen:** 0,00 €
+**Verrechnete Ausgaben gesamt:** 87,79 €  
+**Beleg- und Ausgabensumme:** 87,79 €  
+**Ausgeschlossen:** 0,00 €  
+**Kontrollsumme:** 0,00 €
 
-Noch keine Vorgänge erfasst.
+## Vorgeschlagener Ausgleich
+
+- Katrin überweist Simon 18,93 €.
+- Hummel W überweist Simon 18,93 €.
+- Hummel M überweist Simon 31,00 €.
+
+---
+
+## BON-20260727-001 – EDEKA Rockmann
+
+- Kauf: **27.07.2026, 11:00 Uhr**
+- Belegsumme und Gemeinschaftssumme: **87,79 €**
+- Bezahlt von: **Simon**
+- Ausgeschlossen: **0,00 €**
+
+### Kostenblöcke
+
+1. **Restliche Ausgaben für alle:** 75,72 €  
+   Simon, Katrin, Hummel W und Hummel M je **18,93 €**.
+2. **Nur Hummel M:** 12,07 €  
+   Pueblo Classic sowie die folgenden vier 0,5-l-Getränke jeweils einschließlich Pfand:
+   - Mönchshof Radler
+   - Freiberger Grapefruit
+   - Mönchshof Radler alkoholfrei
+   - Lübzer Zitrone alkoholfrei
+
+Coupons und die beiden Leergutgutschriften verbleiben im allgemeinen Kostenblock.
