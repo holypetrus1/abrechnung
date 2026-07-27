@@ -10,6 +10,7 @@ on:
       - "week2-export.js"
       - "data/**"
       - "exports/**"
+      - "scripts/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -43,7 +44,8 @@ jobs:
           cp index.html styles.css app.js week2-export.js _site/
           cp data/buchungen.json data/protokoll.md _site/data/
           cp data/buchungen_woche2.json data/buchungen_woche2_nachtrag.json data/protokoll_woche2.md _site/data/
-          cp exports/Urlaubskasse_Woche1.xlsx exports/Urlaubskasse_Woche2.xlsx _site/exports/
+          cp exports/Urlaubskasse_Woche1.xlsx _site/exports/
+          bash scripts/decode-week2-export.sh _site/exports/Urlaubskasse_Woche2.xlsx
           touch _site/.nojekyll
 
       - name: Website-Artefakt hochladen
