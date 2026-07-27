@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 27.07.2026, 13:45 Uhr; 3 Vorgänge erfasst.
+Stand: 27.07.2026, 18:54 Uhr; 5 Vorgänge erfasst.
 
 ## Verbindliche Regeln
 
@@ -14,31 +14,30 @@ Stand: 27.07.2026, 13:45 Uhr; 3 Vorgänge erfasst.
 - Bei teilweise berücksichtigten Bons wird nur der verrechnete Anteil als Zahlungsguthaben angesetzt.
 - Ein Vorgang kann mehrere Kostenblöcke mit eigenen Verteilungsschlüsseln enthalten.
 - Pfand wird wie eine normale Ausgabe behandelt.
+- Ausgaben ohne Bon werden nach ausdrücklicher Nutzerangabe erfasst.
 - Keine Zahlungsnummern oder Originalbelege im Repository.
 - Korrekturen werden nachvollziehbar und append-only dokumentiert.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 193,05 €
-- Beleg-/Ausgabensumme: 205,10 €
+- Verrechnete Ausgaben: 208,65 €
+- Beleg-/Ausgabensumme: 220,70 €
 - Ausgeschlossen: 12,05 €
-- Simon: +142,45 €
-- Katrin: −40,74 €
-- Hummel W: −44,82 €
-- Hummel M: −56,89 €
+- Simon: +138,55 €
+- Katrin: −34,64 €
+- Hummel W: −43,12 €
+- Hummel M: −60,79 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 40,74 €.
-- Hummel W überweist Simon 44,82 €.
-- Hummel M überweist Simon 56,89 €.
+- Katrin überweist Simon 34,64 €.
+- Hummel W überweist Simon 43,12 €.
+- Hummel M überweist Simon 60,79 €.
 
 ## Zuletzt verarbeitet
 
-- `BON-20260725-002` – dm-drogerie markt, 25.07.2026, Belegsumme 21,90 €.
-- Verrechnet: 3x Barista Hafer, Pinienkerne und Spirelli = 9,85 €.
-- Ausgeschlossen: 12,05 €.
-- Bezahlt vom Gemeinschaftskonto Katrin & Simon; Guthaben Simon 4,93 €, Katrin 4,92 €.
+- `AUS-20260727-001` – Räucherfisch, 10,00 €, bezahlt von Katrin; je 2,50 € für alle vier.
+- `AUS-20260727-002` – Fähre, 5,60 €, bezahlt von Hummel W; je 1,40 € für alle vier.
 
 ## Archiv Woche 1
 
@@ -46,4 +45,4 @@ Woche 1 ist abgeschlossen und über die Archivfunktion der Website erreichbar.
 
 ## Fortsetzung
 
-Vor jedem neuen Beleg zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und Excel-Export gemeinsam aktualisieren.
+Vor jedem neuen Beleg oder einer Ausgabe ohne Bon zuerst `data/status.md`, `data/buchungen_woche2.json` und `data/buchungen_woche2_nachtrag.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und Excel-Export gemeinsam aktualisieren.
