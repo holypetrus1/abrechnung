@@ -1,122 +1,78 @@
 # Urlaubskasse Woche 2
 
 **Beginn:** 26.07.2026  
-**Stand:** 27.07.2026, 18:54 Uhr  
+**Stand:** 30.07.2026, 11:51 Uhr  
 **Status:** Aktiv  
-**Verbindliche Datenquellen:** `data/buchungen_woche2.json` und `data/buchungen_woche2_nachtrag.json`
+**Verbindliche Datenquelle:** `data/buchungen_woche2.json`
 
-## Teilnehmer und Haushalte
+## Teilnehmer und Standardlogik
 
-- **Haushalt Simon & Katrin:** Simon, Katrin
-- **Haushalt Hummeln:** Hummel W, Hummel M
-
-## Standardlogik
-
-- Normale Gemeinschaftsausgaben tragen Simon, Katrin, Hummel W und Hummel M zu je **25 %**.
-- Die Haushaltszuordnung dient der Übersicht und der Zuordnung gemeinsamer Zahlungskonten; die Kosten werden standardmäßig pro erwachsener Person verteilt, nicht je Haushalt.
-- Ausgaben nur für einen Haushalt werden hälftig auf dessen beide Mitglieder verteilt; Rundungscent werden dokumentiert.
-- Zahlende Person beziehungsweise Zahlungsquelle und Kostentragung werden getrennt erfasst.
-- Zahlungen vom Gemeinschaftskonto Katrin & Simon werden Simon und Katrin hälftig gutgeschrieben.
-- Zahlungen vom Gemeinschaftskonto Hummel W & Hummel M werden Hummel W und Hummel M hälftig gutgeschrieben.
-- Ein Vorgang kann mehrere Kostenblöcke mit unterschiedlichen Verteilungsschlüsseln enthalten.
+- Haushalt Simon & Katrin: Simon, Katrin
+- Haushalt Hummeln: Hummel W, Hummel M
+- Normale Gemeinschaftsausgaben werden zu je 25 % auf alle vier Personen verteilt.
+- Ausgaben nur für einen Haushalt werden hälftig auf dessen Mitglieder verteilt.
+- Zahlende Person und Kostentragung werden getrennt erfasst.
+- Gemeinsame Zahlungskonten werden hälftig auf die beiden Haushaltsmitglieder gutgeschrieben; Rundungscent werden dokumentiert.
 - Pfand wird wie eine normale Ausgabe behandelt.
-- Korrekturen werden nachvollziehbar dokumentiert; Originalbelege und Zahlungsnummern werden nicht im Repository gespeichert.
+- Bei teilweise berücksichtigten Bons zählt nur der verrechnete Anteil als Zahlungsguthaben.
 
 ## Aktueller Gesamtstand
 
 | Person | Belastung | Zahlungsguthaben | Saldo |
 |---|---:|---:|---:|
-| Simon | 49,58 € | 188,13 € | +138,55 € |
-| Katrin | 49,56 € | 14,92 € | −34,64 € |
-| Hummel W | 48,72 € | 5,60 € | −43,12 € |
-| Hummel M | 60,79 € | 0,00 € | −60,79 € |
+| Simon | 58,43 € | 203,16 € | +144,73 € |
+| Katrin | 58,40 € | 29,94 € | −28,46 € |
+| Hummel W | 57,56 € | 5,60 € | −51,96 € |
+| Hummel M | 64,31 € | 0,00 € | −64,31 € |
 
-**Verrechnete Ausgaben gesamt:** 208,65 €  
-**Beleg- und Ausgabensumme:** 220,70 €  
+**Verrechnete Ausgaben gesamt:** 238,70 €  
+**Beleg- und Ausgabensumme:** 250,75 €  
 **Ausgeschlossen:** 12,05 €  
 **Kontrollsumme:** 0,00 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 34,64 €.
-- Hummel W überweist Simon 43,12 €.
-- Hummel M überweist Simon 60,79 €.
+- Katrin überweist Simon 28,46 €.
+- Hummel W überweist Simon 51,96 €.
+- Hummel M überweist Simon 64,31 €.
 
 ---
 
-## BON-20260727-001 – EDEKA Rockmann
+## BON-20260727-001 – EDEKA Rockmann, korrigiert
 
-- Kauf: **27.07.2026, 11:00 Uhr**
-- Belegsumme und Gemeinschaftssumme: **87,79 €**
-- Bezahlt von: **Simon**
-- Ausgeschlossen: **0,00 €**
-
-### Kostenblöcke
-
-1. **Restliche Ausgaben für alle:** 75,72 €  
-   Simon, Katrin, Hummel W und Hummel M je **18,93 €**.
-2. **Nur Hummel M:** 12,07 €  
-   Pueblo Classic sowie vier 0,5-l-Getränke jeweils einschließlich Pfand.
-
-Coupons und die beiden Leergutgutschriften verbleiben im allgemeinen Kostenblock.
-
----
+- Belegsumme: **87,79 €**, bezahlt von Simon
+- **Pueblo Classic: 6,75 € nur Hummel M**
+- **Korrektur vom 30.07.2026:** Die vier 0,5-l-Getränke einschließlich ihres Pfands werden nicht mehr Hummel M allein zugerechnet, sondern auf alle vier verteilt.
+- Damit umfasst der allgemeine Kostenblock **81,04 € = 20,26 € je Person**.
+- Hummel M trägt aus diesem Bon insgesamt **27,01 €**.
 
 ## BON-20260725-001 – REWE Beelitz-Heilstätten
 
-- Kauf: **25.07.2026, 11:02 Uhr**
-- Nachträglich erfasst am 27.07.2026
-- Belegsumme und Gemeinschaftssumme: **95,41 €**
-- Bezahlt von: **Simon**
-- Ausgeschlossen: **0,00 €**
-
-### Kostenblöcke
-
-1. **Restliche Ausgaben für alle:** 93,72 €  
-   Simon, Katrin, Hummel W und Hummel M je **23,43 €**.
-2. **Nur Haushalt Simon & Katrin:** 1,69 €  
-   - Laugenstange: 0,39 €
-   - Pirulo Watermelo: 1,30 €  
-   Verteilung: Simon **0,85 €**, Katrin **0,84 €**. Der Rundungscent liegt bei Simon.
-
-Pfand und die drei Leergutgutschriften verbleiben im allgemeinen Kostenblock.
-
----
+- Belegsumme: **95,41 €**, bezahlt von Simon
+- Laugenstange und Pirulo Watermelo: **1,69 € nur Haushalt Simon & Katrin**
+- Restliche 93,72 €: je 23,43 € für alle vier
 
 ## BON-20260725-002 – dm-drogerie markt
 
-- Kauf: **25.07.2026, 11:24 Uhr**
-- Belegsumme: **21,90 €**
-- Verrechnet: **9,85 €**
-- Ausgeschlossen: **12,05 €**
-- Bezahlt vom **Gemeinschaftskonto Katrin & Simon**
-
-### Berücksichtigte Positionen
-
-- 3 × dmBio Barista Hafer Drink: 4,05 €
-- dmBio Pinienkerne: 4,95 €
-- dmBio Spirelli: 0,85 €
-
-Die 9,85 € werden auf alle vier Personen verteilt: Simon **2,47 €**, Katrin **2,46 €**, Hummel W **2,46 €**, Hummel M **2,46 €**. Der Rundungscent liegt bei Simon.
-
-Dem Gemeinschaftskonto werden für den verrechneten Anteil Simon **4,93 €** und Katrin **4,92 €** gutgeschrieben. Sämtliche übrigen Positionen einschließlich des Coupons für die Gemüsebrühwürfel bleiben ausgeschlossen.
-
----
+- Belegsumme: 21,90 €, verrechnet: **9,85 €**, ausgeschlossen: 12,05 €
+- Berücksichtigt: 3 × Barista Hafer, Pinienkerne und Spirelli
+- Bezahlt vom Gemeinschaftskonto Katrin & Simon
 
 ## AUS-20260727-001 – Räucherfisch
 
-- Datum: **27.07.2026**
-- Betrag: **10,00 €**
-- Bezahlt von: **Katrin**
-- Ohne Bon nach Nutzerangabe erfasst
-- Normale Gemeinschaftsausgabe: Simon, Katrin, Hummel W und Hummel M je **2,50 €**
-
----
+- 10,00 €, bezahlt von Katrin
+- Je 2,50 € für alle vier
 
 ## AUS-20260727-002 – Fähre
 
-- Datum: **27.07.2026**
-- Betrag: **5,60 €**
-- Bezahlt von: **Hummel W**
-- Ohne Bon nach Nutzerangabe erfasst
-- Normale Gemeinschaftsausgabe: Simon, Katrin, Hummel W und Hummel M je **1,40 €**
+- 5,60 €, bezahlt von Hummel W
+- Je 1,40 € für alle vier
+
+## BON-20260730-001 – REWE Könnern
+
+- Kauf: **30.07.2026, 09:22 Uhr**
+- Belegsumme: **30,05 €**
+- Bezahlt vom **Gemeinschaftskonto Katrin & Simon**
+- Keine Ausnahmen: vollständiger Bon für alle vier
+- Kostenanteile: Simon **7,52 €**, Katrin **7,51 €**, Hummel W **7,51 €**, Hummel M **7,51 €**
+- Zahlungsguthaben: Simon **15,03 €**, Katrin **15,02 €**
