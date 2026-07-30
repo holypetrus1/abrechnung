@@ -43,9 +43,8 @@ jobs:
           mkdir -p _site/data _site/exports
           cp index.html styles.css app.js week2-export.js _site/
           cp data/buchungen.json data/protokoll.md _site/data/
-          cp data/buchungen_woche2.json data/buchungen_woche2_nachtrag.json data/protokoll_woche2.md _site/data/
-          cp exports/Urlaubskasse_Woche1.xlsx _site/exports/
-          bash scripts/decode-week2-export.sh _site/exports/Urlaubskasse_Woche2.xlsx
+          cp data/buchungen_woche2.json data/buchungen_woche2_nachtrag.json data/buchungen_woche2_korrektur_20260730.json data/protokoll_woche2.md _site/data/
+          cp exports/Urlaubskasse_Woche1.xlsx exports/Urlaubskasse_Woche2.xlsx _site/exports/
           touch _site/.nojekyll
 
       - name: Website-Artefakt hochladen
