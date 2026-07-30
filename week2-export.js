@@ -8,28 +8,60 @@ window.fetch = async (input, init) => {
     return originalFetch(input, init);
   }
 
-  const [baseResponse, supplementResponse] = await Promise.all([
+  const [baseResponse, supplementResponse, correctionResponse] = await Promise.all([
     originalFetch(input, init),
     originalFetch("data/buchungen_woche2_nachtrag.json", { cache: "no-store" }),
+    originalFetch("data/buchungen_woche2_korrektur_20260730.json", { cache: "no-store" }),
   ]);
 
-  if (!baseResponse.ok || !supplementResponse.ok) {
+  if (!baseResponse.ok) {
     return baseResponse;
   }
 
-  const [baseData, supplement] = await Promise.all([
-    baseResponse.json(),
-    supplementResponse.json(),
-  ]);
+  const baseData = await baseResponse.json();
+  const supplement = supplementResponse.ok ? await supplementResponse.json() : {};
+  const correction = correctionResponse.ok ? await correctionResponse.json() : {};
+
+  const replacements = new Map(
+    (correction.replace_transactions || []).map((replacement) => [replacement.id, replacement]),
+  );
+
+  const applyReplacement = (transaction) => {
+    const replacement = replacements.get(transaction.id);
+    if (!replacement) return transaction;
+
+    const itemUpdate = replacement.item_cost_group_updates;
+    const updatedPositions = new Set(itemUpdate?.positions || []);
+    const items = (transaction.items || []).map((item) => (
+      updatedPositions.has(item.position)
+        ? { ...item, cost_group: itemUpdate.cost_group }
+        : item
+    ));
+
+    return {
+      ...transaction,
+      status: replacement.status || transaction.status,
+      notes: replacement.notes || transaction.notes,
+      cost_groups: replacement.cost_groups || transaction.cost_groups,
+      items,
+    };
+  };
+
+  const existingTransactions = [
+    ...(baseData.transactions || []),
+    ...(supplement.transactions || []),
+  ].map(applyReplacement);
+
+  const existingIds = new Set(existingTransactions.map((transaction) => transaction.id));
+  const additionalTransactions = (correction.transactions || []).filter(
+    (transaction) => !existingIds.has(transaction.id),
+  );
 
   const mergedData = {
     ...baseData,
-    updated_at: supplement.updated_at || baseData.updated_at,
-    transactions: [
-      ...(baseData.transactions || []),
-      ...(supplement.transactions || []),
-    ],
-    balances: supplement.balances || baseData.balances,
+    updated_at: correction.updated_at || supplement.updated_at || baseData.updated_at,
+    transactions: [...existingTransactions, ...additionalTransactions],
+    balances: correction.balances || supplement.balances || baseData.balances,
   };
 
   return new Response(JSON.stringify(mergedData), {
