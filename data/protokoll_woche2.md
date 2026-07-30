@@ -3,7 +3,7 @@
 **Beginn:** 26.07.2026  
 **Stand:** 30.07.2026, 11:51 Uhr  
 **Status:** Aktiv  
-**Verbindliche Datenquelle:** `data/buchungen_woche2.json`
+**Verbindliche Datenquellen:** `data/buchungen_woche2.json`, `data/buchungen_woche2_nachtrag.json` und `data/buchungen_woche2_korrektur_20260730.json`
 
 ## Teilnehmer und Standardlogik
 
