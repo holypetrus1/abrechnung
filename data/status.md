@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 30.07.2026, 11:51 Uhr; 6 Vorgänge erfasst.
+Stand: 30.07.2026, 22:15 Uhr; 11 Vorgänge erfasst.
 
 ## Verbindliche Regeln
 
@@ -10,30 +10,31 @@ Stand: 30.07.2026, 11:51 Uhr; 6 Vorgänge erfasst.
 - Gemeinsame Zahlungskonten werden hälftig gutgeschrieben; Rundungscent werden dokumentiert.
 - Ausgaben nur für einen Haushalt werden hälftig auf dessen Mitglieder verteilt.
 - Bei teilweise berücksichtigten Bons wird nur der verrechnete Anteil angesetzt.
+- Ausgaben ohne bekanntes Datum werden ausdrücklich als „ohne Datum“ geführt.
 - Pfand wird wie eine normale Ausgabe behandelt.
 - Korrekturen bleiben nachvollziehbar dokumentiert.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 238,70 €
-- Beleg-/Ausgabensumme: 250,75 €
+- Verrechnete Ausgaben: 502,10 €
+- Beleg-/Ausgabensumme: 514,15 €
 - Ausgeschlossen: 12,05 €
-- Simon: +144,73 €
-- Katrin: −28,46 €
-- Hummel W: −51,96 €
-- Hummel M: −64,31 €
+- Simon: +78,88 €
+- Katrin: −94,31 €
+- Hummel W: +119,59 €
+- Hummel M: −104,16 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 28,46 €.
-- Hummel W überweist Simon 51,96 €.
-- Hummel M überweist Simon 64,31 €.
+- Katrin überweist Simon 78,88 €.
+- Katrin überweist Hummel W 15,43 €.
+- Hummel M überweist Hummel W 104,16 €.
 
 ## Zuletzt verarbeitet
 
-- `BON-20260730-001` – REWE Könnern, 30,05 €, vollständig Gemeinschaft, bezahlt vom Gemeinschaftskonto Katrin & Simon.
-- Korrektur `BON-20260727-001`: Vier 0,5-l-Getränke inklusive Pfand nun für alle vier; nur Pueblo Classic bleibt ausschließlich Hummel M.
+- Vier undatierte Ausgaben über 140,00 €, 16,00 €, 5,60 € und 49,80 €, jeweils bezahlt von Hummel W und für alle vier.
+- Eine undatierte Ausgabe über 52,00 €, für alle vier; Zahlung hälftig Hummel W und Hummel M mit je 26,00 € gutgeschrieben.
 
 ## Fortsetzung
 
-Vor jedem neuen Vorgang zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Daten, Protokoll, Status, Website und Excel gemeinsam aktualisieren.
+Vor jedem neuen Vorgang zuerst `data/status.md` sowie die Woche-2-Datendateien lesen. Danach Daten, Protokoll, Status, Website und Excel gemeinsam aktualisieren.
