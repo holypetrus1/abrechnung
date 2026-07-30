@@ -1,48 +1,39 @@
 # Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 27.07.2026, 18:54 Uhr; 5 Vorgänge erfasst.
+Stand: 30.07.2026, 11:51 Uhr; 6 Vorgänge erfasst.
 
 ## Verbindliche Regeln
 
-- Woche 2 ist die aktive Abrechnungsperiode.
 - Normale Gemeinschaftsausgaben tragen Simon, Katrin, Hummel W und Hummel M zu je 25 %.
 - Haushalte: Simon & Katrin sowie Hummel W & Hummel M.
-- Die Standardverteilung erfolgt pro Person, nicht pro Haushalt.
-- Ausgaben nur für einen Haushalt werden hälftig auf dessen Mitglieder verteilt; Rundungscent werden dokumentiert.
 - Zahlende Person und Kostentragung werden getrennt erfasst.
-- Gemeinsame Zahlungskonten werden den beiden Mitgliedern des jeweiligen Haushalts hälftig gutgeschrieben.
-- Bei teilweise berücksichtigten Bons wird nur der verrechnete Anteil als Zahlungsguthaben angesetzt.
-- Ein Vorgang kann mehrere Kostenblöcke mit eigenen Verteilungsschlüsseln enthalten.
+- Gemeinsame Zahlungskonten werden hälftig gutgeschrieben; Rundungscent werden dokumentiert.
+- Ausgaben nur für einen Haushalt werden hälftig auf dessen Mitglieder verteilt.
+- Bei teilweise berücksichtigten Bons wird nur der verrechnete Anteil angesetzt.
 - Pfand wird wie eine normale Ausgabe behandelt.
-- Ausgaben ohne Bon werden nach ausdrücklicher Nutzerangabe erfasst.
-- Keine Zahlungsnummern oder Originalbelege im Repository.
-- Korrekturen werden nachvollziehbar und append-only dokumentiert.
+- Korrekturen bleiben nachvollziehbar dokumentiert.
 
 ## Aktueller Abrechnungsstand
 
-- Verrechnete Ausgaben: 208,65 €
-- Beleg-/Ausgabensumme: 220,70 €
+- Verrechnete Ausgaben: 238,70 €
+- Beleg-/Ausgabensumme: 250,75 €
 - Ausgeschlossen: 12,05 €
-- Simon: +138,55 €
-- Katrin: −34,64 €
-- Hummel W: −43,12 €
-- Hummel M: −60,79 €
+- Simon: +144,73 €
+- Katrin: −28,46 €
+- Hummel W: −51,96 €
+- Hummel M: −64,31 €
 
 ## Vorgeschlagener Ausgleich
 
-- Katrin überweist Simon 34,64 €.
-- Hummel W überweist Simon 43,12 €.
-- Hummel M überweist Simon 60,79 €.
+- Katrin überweist Simon 28,46 €.
+- Hummel W überweist Simon 51,96 €.
+- Hummel M überweist Simon 64,31 €.
 
 ## Zuletzt verarbeitet
 
-- `AUS-20260727-001` – Räucherfisch, 10,00 €, bezahlt von Katrin; je 2,50 € für alle vier.
-- `AUS-20260727-002` – Fähre, 5,60 €, bezahlt von Hummel W; je 1,40 € für alle vier.
-
-## Archiv Woche 1
-
-Woche 1 ist abgeschlossen und über die Archivfunktion der Website erreichbar.
+- `BON-20260730-001` – REWE Könnern, 30,05 €, vollständig Gemeinschaft, bezahlt vom Gemeinschaftskonto Katrin & Simon.
+- Korrektur `BON-20260727-001`: Vier 0,5-l-Getränke inklusive Pfand nun für alle vier; nur Pueblo Classic bleibt ausschließlich Hummel M.
 
 ## Fortsetzung
 
-Vor jedem neuen Beleg oder einer Ausgabe ohne Bon zuerst `data/status.md`, `data/buchungen_woche2.json` und `data/buchungen_woche2_nachtrag.json` lesen. Danach Woche-2-Daten, Protokoll, Status, Website und Excel-Export gemeinsam aktualisieren.
+Vor jedem neuen Vorgang zuerst `data/status.md` und `data/buchungen_woche2.json` lesen. Danach Daten, Protokoll, Status, Website und Excel gemeinsam aktualisieren.
