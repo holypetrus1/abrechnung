@@ -1,9 +1,9 @@
 # Urlaubskasse Woche 2
 
 **Beginn:** 26.07.2026  
-**Stand:** 30.07.2026, 22:15 Uhr  
+**Stand:** 31.07.2026, 06:34 Uhr  
 **Status:** Aktiv  
-**Verbindliche Datenquellen:** `data/buchungen_woche2.json`, `data/buchungen_woche2_nachtrag.json`, `data/buchungen_woche2_korrektur_20260730.json` und `data/buchungen_woche2_nachtrag_20260730_abends.json`
+**Verbindliche Datenquelle der Webansicht:** `data/buchungen_woche2_web.json`
 
 ## Teilnehmer und Standardlogik
 
