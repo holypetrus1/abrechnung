@@ -1,10 +1,10 @@
 const weekConfigs = {
   current: {
     label: "Woche 2",
-    dataPath: "data/buchungen_woche2.json",
+    dataPath: "data/buchungen_woche2_web.json",
     protocolPath: "data/protokoll_woche2.md",
-    excelPath: null,
-    excelName: null,
+    excelPath: "exports/Urlaubskasse_Woche2.xlsx",
+    excelName: "Urlaubskasse_Woche2.xlsx",
     isArchive: false,
   },
   archive: {
@@ -21,28 +21,14 @@ const state = {
   config: new URLSearchParams(location.search).get("woche") === "1"
     ? weekConfigs.archive
     : weekConfigs.current,
-  data: null,
-  protocol: "",
 };
 
-const euro = new Intl.NumberFormat("de-DE", {
-  style: "currency",
-  currency: "EUR",
-});
-
-const dateFormat = new Intl.DateTimeFormat("de-DE", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-});
-
-const shortDateFormat = new Intl.DateTimeFormat("de-DE", {
-  day: "2-digit",
-  month: "short",
-});
+const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
+const fullDate = new Intl.DateTimeFormat("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+const shortDate = new Intl.DateTimeFormat("de-DE", { day: "2-digit", month: "short" });
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -58,12 +44,7 @@ function inlineMarkdown(value) {
 }
 
 function splitTableRow(line) {
-  return line
-    .trim()
-    .replace(/^\|/, "")
-    .replace(/\|$/, "")
-    .split("|")
-    .map((cell) => cell.trim());
+  return line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((cell) => cell.trim());
 }
 
 function isTableDivider(line) {
@@ -78,15 +59,12 @@ function renderMarkdown(markdown) {
   let listType = null;
 
   const closeList = () => {
-    if (listType) {
-      html.push(`</${listType}>`);
-      listType = null;
-    }
+    if (listType) html.push(`</${listType}>`);
+    listType = null;
   };
 
   while (index < lines.length) {
     const line = lines[index].trim();
-
     if (!line) {
       closeList();
       index += 1;
@@ -96,8 +74,8 @@ function renderMarkdown(markdown) {
     if (line.includes("|") && index + 1 < lines.length && isTableDivider(lines[index + 1])) {
       closeList();
       const headers = splitTableRow(line);
-      index += 2;
       const rows = [];
+      index += 2;
       while (index < lines.length && lines[index].trim().includes("|")) {
         rows.push(splitTableRow(lines[index]));
         index += 1;
@@ -145,7 +123,7 @@ function renderMarkdown(markdown) {
     }
 
     closeList();
-    html.push(`<p>${inlineMarkdown(line).replace(/ {2}$/, "<br>")}</p>`);
+    html.push(`<p>${inlineMarkdown(line)}</p>`);
     index += 1;
   }
 
@@ -153,106 +131,74 @@ function renderMarkdown(markdown) {
   return html.join("");
 }
 
-function activateView(viewName, updateHash = true) {
-  document.querySelectorAll(".tab").forEach((tab) => {
-    const isActive = tab.dataset.view === viewName;
-    tab.classList.toggle("is-active", isActive);
-    tab.setAttribute("aria-selected", String(isActive));
-    tab.tabIndex = isActive ? 0 : -1;
-  });
-
-  document.querySelectorAll(".view").forEach((view) => {
-    const isActive = view.id === `view-${viewName}`;
-    view.classList.toggle("is-active", isActive);
-    view.hidden = !isActive;
-  });
-
-  if (updateHash) {
-    history.replaceState(null, "", `${location.pathname}${location.search}#${viewName}`);
-  }
-}
-
 function applyWeekConfig() {
   const { config } = state;
   document.title = `Urlaubskasse · ${config.label}`;
   document.querySelector("#week-title").textContent = config.label;
-  document.querySelector("#protocol-link").href = config.protocolPath;
   document.querySelector("#view-mode").textContent = config.isArchive ? "Archiv · abgeschlossen" : "Aktive Woche";
+  document.querySelector("#protocol-link").href = config.protocolPath;
 
   const weekSwitch = document.querySelector("#week-switch");
-  if (config.isArchive) {
-    weekSwitch.href = location.pathname || "./";
-    weekSwitch.textContent = "Zur aktuellen Woche";
-  } else {
-    weekSwitch.href = "?woche=1";
-    weekSwitch.textContent = "Archiv · Woche 1";
-  }
+  weekSwitch.href = config.isArchive ? (location.pathname || "./") : "?woche=1";
+  weekSwitch.textContent = config.isArchive ? "Zur aktuellen Woche" : "Archiv · Woche 1";
 
-  const excelTitle = document.querySelector("#excel-title");
-  const excelDescription = document.querySelector("#excel-description");
+  document.querySelector("#excel-title").textContent = `Urlaubskasse ${config.label}`;
+  document.querySelector("#excel-description").textContent = "Die vollständige Excel-Datei mit dem aktuellen Datenstand steht hier zum Download bereit.";
   const excelDownload = document.querySelector("#excel-download");
-  const excelMeta = document.querySelector("#excel-meta");
-
-  excelTitle.textContent = `Urlaubskasse ${config.label}`;
-  if (config.excelPath) {
-    excelDescription.textContent = "Die vollständige Excel-Datei mit dem abgeschlossenen Datenstand steht hier unverändert zum Download bereit.";
-    excelDownload.href = config.excelPath;
-    excelDownload.setAttribute("download", "");
-    excelDownload.removeAttribute("aria-disabled");
-    excelDownload.classList.remove("is-disabled");
-    excelDownload.textContent = "Excel-Datei herunterladen";
-    excelMeta.textContent = `Dateiname: ${config.excelName}`;
-  } else {
-    excelDescription.textContent = "Der Excel-Export wird nach dem ersten erfassten Vorgang bereitgestellt.";
-    excelDownload.removeAttribute("href");
-    excelDownload.removeAttribute("download");
-    excelDownload.setAttribute("aria-disabled", "true");
-    excelDownload.classList.add("is-disabled");
-    excelDownload.textContent = "Noch kein Export vorhanden";
-    excelMeta.textContent = `${config.label} enthält noch keine Buchungen.`;
-  }
+  excelDownload.href = config.excelPath;
+  excelDownload.setAttribute("download", "");
+  excelDownload.removeAttribute("aria-disabled");
+  excelDownload.classList.remove("is-disabled");
+  excelDownload.textContent = "Excel-Datei herunterladen";
+  document.querySelector("#excel-meta").textContent = `Dateiname: ${config.excelName}`;
 }
 
 function renderSummary(data) {
   document.querySelector("#total-expenses").textContent = euro.format(data.balances.total_holiday_expenses);
-  const transactionLabel = data.transactions.length === 1 ? "Vorgang" : "Vorgänge";
-  document.querySelector("#transaction-count").textContent = `${data.transactions.length} ${transactionLabel}`;
-
-  const updatedAt = new Date(data.updated_at);
-  document.querySelector("#updated-at").textContent = `Stand ${dateFormat.format(updatedAt)}`;
+  const count = data.transactions.length;
+  document.querySelector("#transaction-count").textContent = `${count} ${count === 1 ? "Vorgang" : "Vorgänge"}`;
+  const updated = new Date(data.updated_at);
+  document.querySelector("#updated-at").textContent = Number.isNaN(updated.getTime())
+    ? "Aktueller Datenstand"
+    : `Stand ${fullDate.format(updated)}`;
 }
 
 function renderPurchases(data) {
   const list = document.querySelector("#purchase-list");
   if (!data.transactions.length) {
-    list.innerHTML = '<p class="empty-state">Noch keine Ausgaben erfasst. Die ersten Bons können jetzt eingepflegt werden.</p>';
+    list.innerHTML = '<p class="empty-state">Noch keine Ausgaben erfasst.</p>';
     return;
   }
 
-  const transactions = [...data.transactions].sort(
-    (left, right) => new Date(right.purchase_at) - new Date(left.purchase_at),
-  );
+  const transactions = [...data.transactions].sort((left, right) => {
+    if (!left.purchase_at && !right.purchase_at) return 0;
+    if (!left.purchase_at) return 1;
+    if (!right.purchase_at) return -1;
+    return new Date(right.purchase_at) - new Date(left.purchase_at);
+  });
 
   list.innerHTML = transactions.map((transaction) => {
-    const date = new Date(transaction.purchase_at);
-    const isCredit = transaction.holiday_total < 0;
-    const typeLabel = transaction.type === "credit_note" ? "Gutschrift" : "Urlaubskasse";
+    const hasDate = Boolean(transaction.purchase_at);
+    const date = hasDate ? new Date(transaction.purchase_at) : null;
+    const validDate = date && !Number.isNaN(date.getTime());
+    const dateBlock = validDate
+      ? `<strong>${shortDate.format(date)}</strong>${date.getFullYear()}`
+      : "<strong>ohne</strong>Datum";
+    const statusLabel = transaction.status === "corrected" ? "korrigiert" : "Urlaubskasse";
     return `
-      <article class="purchase-row${isCredit ? " is-credit" : ""}">
-        <p class="purchase-date"><strong>${shortDateFormat.format(date)}</strong>${date.getFullYear()}</p>
+      <article class="purchase-row">
+        <p class="purchase-date">${dateBlock}</p>
         <div class="purchase-main">
           <h3>${escapeHtml(transaction.merchant)}</h3>
           <p>Gezahlt von: ${escapeHtml(transaction.payment_source)}</p>
         </div>
-        <p class="purchase-amount">${euro.format(transaction.holiday_total)}<small>${typeLabel}</small></p>
-      </article>
-    `;
+        <p class="purchase-amount">${euro.format(transaction.holiday_total)}<small>${statusLabel}</small></p>
+      </article>`;
   }).join("");
 }
 
 function renderBalances(data) {
-  const grid = document.querySelector("#balance-grid");
-  grid.innerHTML = data.balances.persons.map((person) => {
+  document.querySelector("#balance-grid").innerHTML = data.balances.persons.map((person) => {
     const balanceClass = person.balance > 0 ? "is-positive" : person.balance < 0 ? "is-negative" : "";
     const prefix = person.balance > 0 ? "+" : "";
     return `
@@ -260,30 +206,52 @@ function renderBalances(data) {
         <p class="balance-person">${escapeHtml(person.person)}</p>
         <p class="balance-value">${prefix}${euro.format(person.balance)}</p>
         <p class="balance-detail">Anteil ${euro.format(person.charge)}<br>Bezahlt ${euro.format(person.payment_credit)}</p>
-      </article>
-    `;
+      </article>`;
   }).join("");
 
-  const transferList = document.querySelector("#transfer-list");
-  const transfers = data.balances.suggested_transfers;
-  if (!transfers.length) {
-    transferList.innerHTML = '<p class="transfer-empty">Aktuell sind keine Überweisungen erforderlich.</p>';
-    return;
-  }
-
-  transferList.innerHTML = transfers.map((transfer) => `
-    <div class="transfer-row">
-      <div class="transfer-route">
-        ${escapeHtml(transfer.from)} <span>überweist an</span> ${escapeHtml(transfer.to)}
-      </div>
-      <div class="transfer-amount">${euro.format(transfer.amount)}</div>
-    </div>
-  `).join("");
+  const transfers = data.balances.suggested_transfers || [];
+  document.querySelector("#transfer-list").innerHTML = transfers.length
+    ? transfers.map((transfer) => `
+        <div class="transfer-row">
+          <div class="transfer-route">${escapeHtml(transfer.from)} <span>überweist an</span> ${escapeHtml(transfer.to)}</div>
+          <div class="transfer-amount">${euro.format(transfer.amount)}</div>
+        </div>`).join("")
+    : '<p class="transfer-empty">Aktuell sind keine Überweisungen erforderlich.</p>';
 }
 
-function showError(error) {
-  document.querySelector("#error-card").hidden = false;
-  document.querySelector("#error-detail").textContent = String(error?.message || error);
+function activateView(viewName, updateHash = true) {
+  document.querySelectorAll(".tab").forEach((tab) => {
+    const active = tab.dataset.view === viewName;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  document.querySelectorAll(".view").forEach((view) => {
+    const active = view.id === `view-${viewName}`;
+    view.classList.toggle("is-active", active);
+    view.hidden = !active;
+  });
+  if (updateHash) history.replaceState(null, "", `${location.pathname}${location.search}#${viewName}`);
+}
+
+function initNavigation() {
+  const validViews = ["protokoll", "einkaeufe", "excel", "ausgleich"];
+  activateView(validViews.includes(location.hash.slice(1)) ? location.hash.slice(1) : "protokoll", false);
+  const tabs = [...document.querySelectorAll(".tab")];
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activateView(tab.dataset.view));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      let next = index;
+      if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = tabs.length - 1;
+      tabs[next].focus();
+      activateView(tabs[next].dataset.view);
+    });
+  });
 }
 
 async function loadData() {
@@ -291,48 +259,19 @@ async function loadData() {
     fetch(state.config.dataPath, { cache: "no-store" }),
     fetch(state.config.protocolPath, { cache: "no-store" }),
   ]);
-
-  if (!dataResponse.ok) {
-    throw new Error(`Datenbestand nicht gefunden (${dataResponse.status}).`);
-  }
-  if (!protocolResponse.ok) {
-    throw new Error(`Protokoll nicht gefunden (${protocolResponse.status}).`);
-  }
-
-  state.data = await dataResponse.json();
-  state.protocol = await protocolResponse.text();
-
-  renderSummary(state.data);
-  renderPurchases(state.data);
-  renderBalances(state.data);
-  document.querySelector("#protocol-content").innerHTML = renderMarkdown(state.protocol);
+  if (!dataResponse.ok) throw new Error(`Datenbestand nicht gefunden (${dataResponse.status}).`);
+  if (!protocolResponse.ok) throw new Error(`Protokoll nicht gefunden (${protocolResponse.status}).`);
+  const data = await dataResponse.json();
+  const protocol = await protocolResponse.text();
+  renderSummary(data);
+  renderPurchases(data);
+  renderBalances(data);
+  document.querySelector("#protocol-content").innerHTML = renderMarkdown(protocol);
 }
 
-function initNavigation() {
-  const validViews = ["protokoll", "einkaeufe", "excel", "ausgleich"];
-  const initialView = validViews.includes(location.hash.slice(1)) ? location.hash.slice(1) : "protokoll";
-  activateView(initialView, false);
-
-  const tabs = [...document.querySelectorAll(".tab")];
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => activateView(tab.dataset.view));
-    tab.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-      event.preventDefault();
-      let nextIndex = index;
-      if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
-      if (event.key === "Home") nextIndex = 0;
-      if (event.key === "End") nextIndex = tabs.length - 1;
-      tabs[nextIndex].focus();
-      activateView(tabs[nextIndex].dataset.view);
-    });
-  });
-
-  window.addEventListener("hashchange", () => {
-    const view = location.hash.slice(1);
-    if (validViews.includes(view)) activateView(view, false);
-  });
+function showError(error) {
+  document.querySelector("#error-card").hidden = false;
+  document.querySelector("#error-detail").textContent = String(error?.message || error);
 }
 
 applyWeekConfig();
