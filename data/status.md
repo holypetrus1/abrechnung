@@ -1,6 +1,6 @@
 # Urlaubskasse Woche 2 – Arbeitsstatus
 
-Stand: 30.07.2026, 22:15 Uhr; 11 Vorgänge erfasst.
+Stand: 31.07.2026, 06:34 Uhr; 11 Vorgänge erfasst.
 
 ## Verbindliche Regeln
 
@@ -30,6 +30,10 @@ Stand: 30.07.2026, 22:15 Uhr; 11 Vorgänge erfasst.
 - Katrin überweist Hummel W 15,43 €.
 - Hummel M überweist Hummel W 104,16 €.
 
+## Webansicht
+
+Die aktive Website lädt ausschließlich `data/buchungen_woche2_web.json`. Die frühere clientseitige Verkettung mehrerer Nachtrags- und Korrekturdateien wurde entfernt.
+
 ## Zuletzt verarbeitet
 
 - Vier undatierte Ausgaben über 140,00 €, 16,00 €, 5,60 € und 49,80 €, jeweils bezahlt von Hummel W und für alle vier.
@@ -37,4 +41,4 @@ Stand: 30.07.2026, 22:15 Uhr; 11 Vorgänge erfasst.
 
 ## Fortsetzung
 
-Vor jedem neuen Vorgang zuerst `data/status.md` sowie die Woche-2-Datendateien lesen. Danach Daten, Protokoll, Status, Website und Excel gemeinsam aktualisieren.
+Vor jedem neuen Vorgang zuerst `data/status.md` und `data/buchungen_woche2_web.json` lesen. Danach Daten, Protokoll, Status, Website und Excel gemeinsam aktualisieren.
