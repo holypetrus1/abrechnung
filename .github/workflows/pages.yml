@@ -10,7 +10,6 @@ on:
       - "week2-export.js"
       - "data/**"
       - "exports/**"
-      - "scripts/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -43,7 +42,7 @@ jobs:
           mkdir -p _site/data _site/exports
           cp index.html styles.css app.js week2-export.js _site/
           cp data/buchungen.json data/protokoll.md _site/data/
-          cp data/buchungen_woche2.json data/buchungen_woche2_nachtrag.json data/buchungen_woche2_korrektur_20260730.json data/buchungen_woche2_nachtrag_20260730_abends.json data/protokoll_woche2.md _site/data/
+          cp data/buchungen_woche2_web.json data/protokoll_woche2.md _site/data/
           cp exports/Urlaubskasse_Woche1.xlsx _site/exports/
           base64 --decode exports/Urlaubskasse_Woche2.xlsx.b64 > _site/exports/Urlaubskasse_Woche2.xlsx
           touch _site/.nojekyll
